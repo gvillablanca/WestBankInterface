@@ -1,4 +1,4 @@
-package westbankinterface;
+package bank.westbankinterface;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -8,8 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import classBank.Cliente;
-import classBank.Cuenta;
+import bank.classBank.Cliente;
+import bank.classBank.Cuenta;
 
 public class WestBankInterface {
     public static void main(String[] args) {

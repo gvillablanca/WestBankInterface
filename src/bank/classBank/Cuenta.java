@@ -1,4 +1,4 @@
-package classBank;
+package bank.classBank;
 
 public class Cuenta {
     int numeroCuenta;

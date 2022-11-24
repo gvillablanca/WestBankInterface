@@ -1,4 +1,4 @@
-package westbankinterface;
+package bank.westbankinterface;
 
 import javax.swing.JOptionPane;
 
