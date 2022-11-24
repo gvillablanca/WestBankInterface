@@ -1,6 +1,7 @@
 package bank.westbankinterface;
 
 import bank.gestionarCliente.GestionarCliente;
+import bank.gestionarCuenta.gestionarCuenta;
 import javax.swing.JOptionPane;
 
 public class Home extends javax.swing.JFrame {
@@ -14,8 +15,6 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPopupMenu1 = new javax.swing.JPopupMenu();
-        jDialog1 = new javax.swing.JDialog();
         lb_bienvenida = new java.awt.Label();
         bar_menu = new javax.swing.JToolBar();
         btn_gestionar_cliente = new javax.swing.JButton();
@@ -24,17 +23,6 @@ public class Home extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,6 +35,7 @@ public class Home extends javax.swing.JFrame {
 
         btn_gestionar_cliente.setText("Gestionar Cliente");
         btn_gestionar_cliente.setAlignmentY(0.0F);
+        btn_gestionar_cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_gestionar_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_gestionar_clienteActionPerformed(evt);
@@ -102,7 +91,8 @@ public class Home extends javax.swing.JFrame {
 
     private void btn_gestionar_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gestionar_clienteActionPerformed
         GestionarCliente gestionarCliente = new GestionarCliente();
-               
+        gestionarCliente.setVisible(true);
+        this.dispose();              
     }//GEN-LAST:event_btn_gestionar_clienteActionPerformed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
@@ -110,7 +100,9 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_salirActionPerformed
 
     private void btn_gestionar_cuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gestionar_cuentaActionPerformed
-        // TODO add your handling code here:
+        gestionarCuenta gestionarCuenta = new gestionarCuenta();
+        gestionarCuenta.setVisible(true);
+        this.dispose(); 
     }//GEN-LAST:event_btn_gestionar_cuentaActionPerformed
 
     /**
@@ -153,11 +145,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton btn_gestionar_cliente;
     private javax.swing.JButton btn_gestionar_cuenta;
     private javax.swing.JButton btn_salir;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPopupMenu jPopupMenu1;
     private java.awt.Label lb_bienvenida;
     // End of variables declaration//GEN-END:variables
 }
