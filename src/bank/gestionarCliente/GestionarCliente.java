@@ -122,7 +122,7 @@ public class GestionarCliente extends javax.swing.JFrame {
         jToolBar1.add(btn_ver_datos_m);
 
         btn_inicio_m.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/home.png"))); // NOI18N
-        btn_inicio_m.setText("        Volver Inicio    ");
+        btn_inicio_m.setText("      Volver Inicio      ");
         btn_inicio_m.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_inicio_m.setFocusable(false);
         btn_inicio_m.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
