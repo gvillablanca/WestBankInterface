@@ -88,6 +88,7 @@ public class GestionarCliente extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
+        btn_registrar_cliente_m.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/add_client.png"))); // NOI18N
         btn_registrar_cliente_m.setText("Registrar Cliente");
         btn_registrar_cliente_m.setFocusable(false);
         btn_registrar_cliente_m.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -99,6 +100,7 @@ public class GestionarCliente extends javax.swing.JFrame {
         });
         jToolBar1.add(btn_registrar_cliente_m);
 
+        btn_ver_datos_m.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/client_data.png"))); // NOI18N
         btn_ver_datos_m.setText("Ver datos cliente");
         btn_ver_datos_m.setFocusable(false);
         btn_ver_datos_m.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -111,7 +113,7 @@ public class GestionarCliente extends javax.swing.JFrame {
         jToolBar1.add(btn_ver_datos_m);
 
         btn_inicio_m.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/home.png"))); // NOI18N
-        btn_inicio_m.setText("Inicio");
+        btn_inicio_m.setText("Volver Inicio");
         btn_inicio_m.setFocusable(false);
         btn_inicio_m.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_inicio_m.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -267,7 +269,7 @@ public class GestionarCliente extends javax.swing.JFrame {
                 .addGroup(jp_formulario_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_validar_datos)
                     .addComponent(btn_crear_cliente))
-                .addGap(47, 47, 47))
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout jp_registrar_clienteLayout = new javax.swing.GroupLayout(jp_registrar_cliente);
@@ -297,7 +299,7 @@ public class GestionarCliente extends javax.swing.JFrame {
                     .addComponent(txf_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_validar_rut))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jp_formulario_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jp_formulario_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
@@ -412,12 +414,13 @@ public class GestionarCliente extends javax.swing.JFrame {
         jp_ver_datosLayout.setVerticalGroup(
             jp_ver_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_ver_datosLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel10)
                 .addGap(8, 8, 8)
                 .addGroup(jp_ver_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txf_rut_datos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_validar_rut1))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jp_formulario_datos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

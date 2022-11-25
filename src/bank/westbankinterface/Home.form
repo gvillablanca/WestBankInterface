@@ -51,8 +51,8 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Component id="bar_menu" min="-2" pref="59" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
+              <Component id="bar_menu" min="-2" pref="93" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
               <Component id="lb_bienvenida" min="-2" pref="73" max="-2" attributes="0"/>
               <EmptySpace pref="247" max="32767" attributes="0"/>
           </Group>
@@ -79,6 +79,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btn_gestionar_cliente">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/bank/img/gestionar_Cliente.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Gestionar Cliente"/>
             <Property name="alignmentY" type="float" value="0.0"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -99,6 +102,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_salir">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/bank/img/exit.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
           <Events>

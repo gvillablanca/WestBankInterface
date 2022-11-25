@@ -79,6 +79,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btn_registrar_cliente_m">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/bank/img/add_client.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Registrar Cliente"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -90,6 +93,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_ver_datos_m">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/bank/img/client_data.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Ver datos cliente"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -104,7 +110,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/bank/img/home.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Inicio"/>
+            <Property name="text" type="java.lang.String" value="Volver Inicio"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
@@ -166,7 +172,7 @@
                       <Component id="btn_validar_rut" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jp_formulario_cliente" min="-2" pref="364" max="-2" attributes="0"/>
+                  <Component id="jp_formulario_cliente" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="7" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -273,7 +279,7 @@
                           <Component id="btn_validar_datos" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_crear_cliente" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -408,13 +414,14 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txf_rut_datos" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btn_validar_rut1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jp_formulario_datos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
