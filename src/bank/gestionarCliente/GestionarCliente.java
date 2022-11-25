@@ -37,7 +37,7 @@ public class GestionarCliente extends javax.swing.JFrame {
         btn_registrar_cliente_m = new javax.swing.JButton();
         btn_ver_datos_m = new javax.swing.JButton();
         btn_inicio_m = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btn_salir = new javax.swing.JButton();
         jp_registrar_cliente = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         btn_validar_rut = new javax.swing.JButton();
@@ -79,12 +79,9 @@ public class GestionarCliente extends javax.swing.JFrame {
         lb_telefono = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         lb_numeroCuenta = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 523));
+        setPreferredSize(new java.awt.Dimension(800, 523));
 
         jToolBar1.setRollover(true);
 
@@ -115,7 +112,7 @@ public class GestionarCliente extends javax.swing.JFrame {
         jToolBar1.add(btn_ver_datos_m);
 
         btn_inicio_m.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/home.png"))); // NOI18N
-        btn_inicio_m.setText("Volver Inicio");
+        btn_inicio_m.setText("Volver Inicio  ");
         btn_inicio_m.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_inicio_m.setFocusable(false);
         btn_inicio_m.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -127,18 +124,18 @@ public class GestionarCliente extends javax.swing.JFrame {
         });
         jToolBar1.add(btn_inicio_m);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/exit.png"))); // NOI18N
-        jButton1.setText("Salir");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/exit.png"))); // NOI18N
+        btn_salir.setText("Salir");
+        btn_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_salir.setFocusable(false);
+        btn_salir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_salir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_salirActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButton1);
+        jToolBar1.add(btn_salir);
 
         jp_registrar_cliente.setEnabled(false);
 
@@ -198,6 +195,11 @@ public class GestionarCliente extends javax.swing.JFrame {
 
         btn_validar_datos.setText("Validar datos");
         btn_validar_datos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_validar_datos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_validar_datosActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Numero de Cuenta");
 
@@ -260,7 +262,7 @@ public class GestionarCliente extends javax.swing.JFrame {
         jp_formulario_clienteLayout.setVerticalGroup(
             jp_formulario_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_formulario_clienteLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(7, 7, 7)
                 .addGroup(jp_formulario_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -284,9 +286,9 @@ public class GestionarCliente extends javax.swing.JFrame {
                 .addGroup(jp_formulario_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txf_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jp_numero_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_formulario_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_validar_datos)
                     .addComponent(btn_crear_cliente))
@@ -320,8 +322,8 @@ public class GestionarCliente extends javax.swing.JFrame {
                     .addComponent(txf_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_validar_rut))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jp_formulario_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addComponent(jp_formulario_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         txf_rut_datos.addActionListener(new java.awt.event.ActionListener() {
@@ -447,14 +449,6 @@ public class GestionarCliente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -489,7 +483,7 @@ public class GestionarCliente extends javax.swing.JFrame {
 
     private void btn_validar_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_rutActionPerformed
         if(txf_rut.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Rellenar campo para validación porfavor", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese rut para validación", "Advertencia", JOptionPane.OK_OPTION);
         }
         else{
             jp_formulario_cliente.setVisible(true);
@@ -497,17 +491,23 @@ public class GestionarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_validar_rutActionPerformed
 
     private void txf_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_nombreActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txf_nombreActionPerformed
 
     private void btn_crear_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crear_clienteActionPerformed
-        // TODO add your handling code here:
+        if(txf_numeroCuenta.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese numero de cuenta para crear cliente", "Advertencia", JOptionPane.OK_OPTION);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Cliente Creado exitosamente!", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_btn_crear_clienteActionPerformed
 
     private void btn_registrar_cliente_mActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrar_cliente_mActionPerformed
         jp_registrar_cliente.setVisible(true);
         jp_ver_datos.setVisible(false);
         jp_formulario_cliente.setVisible(false);
+        jp_numero_cuenta.setVisible(false);
     }//GEN-LAST:event_btn_registrar_cliente_mActionPerformed
 
     private void txf_rut_datosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_rut_datosActionPerformed
@@ -516,7 +516,7 @@ public class GestionarCliente extends javax.swing.JFrame {
 
     private void btn_validar_rut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_rut1ActionPerformed
         if(txf_rut_datos.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Rellenar campo para validación porfavor", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese rut para validación", "Advertencia", JOptionPane.OK_OPTION);
         }
         else{
             jp_formulario_datos.setVisible(true);
@@ -542,9 +542,20 @@ public class GestionarCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_inicio_mActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_salirActionPerformed
+
+    private void btn_validar_datosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_datosActionPerformed
+        if(txf_nombre.getText().isEmpty() || txf_apPaterno.getText().isEmpty() || 
+        txf_apMaterno.getText().isEmpty() || txf_direccion.getText().isEmpty() || txf_telefono.getText().isEmpty() ){
+            JOptionPane.showMessageDialog(null, "Rellenar todos los campos para validación", "Advertencia", JOptionPane.OK_OPTION);
+        }
+        else{
+            jp_numero_cuenta.setVisible(true);
+            btn_validar_datos.setVisible(false);
+        }
+    }//GEN-LAST:event_btn_validar_datosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -585,11 +596,11 @@ public class GestionarCliente extends javax.swing.JFrame {
     private javax.swing.JButton btn_crear_cliente;
     private javax.swing.JButton btn_inicio_m;
     private javax.swing.JButton btn_registrar_cliente_m;
+    private javax.swing.JButton btn_salir;
     private javax.swing.JButton btn_validar_datos;
     private javax.swing.JButton btn_validar_rut;
     private javax.swing.JButton btn_validar_rut1;
     private javax.swing.JButton btn_ver_datos_m;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -606,9 +617,6 @@ public class GestionarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JPanel jp_formulario_cliente;
     private javax.swing.JPanel jp_formulario_datos;
