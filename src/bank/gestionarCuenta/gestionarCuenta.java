@@ -5,6 +5,8 @@
  */
 package bank.gestionarCuenta;
 
+import bank.westbankinterface.Home;
+
 /**
  *
  * @author Reizewr
@@ -16,6 +18,10 @@ public class gestionarCuenta extends javax.swing.JFrame {
      */
     public gestionarCuenta() {
         initComponents();
+        setLocationRelativeTo(null);
+        jp_depositar.setVisible(false);
+        jp_girar.setVisible(false);
+        jp_consulta_saldo.setVisible(false);
     }
 
     /**
@@ -28,41 +34,297 @@ public class gestionarCuenta extends javax.swing.JFrame {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btn_depositar = new javax.swing.JButton();
+        btn_girar = new javax.swing.JButton();
+        btn_consulta_saldo = new javax.swing.JButton();
+        btn_inicio = new javax.swing.JButton();
+        btn_salir = new javax.swing.JButton();
+        jp_depositar = new javax.swing.JPanel();
+        lb_titulo_depositar = new javax.swing.JLabel();
+        lb_ingrese_rut = new javax.swing.JLabel();
+        txt_ingreso_rut = new javax.swing.JTextField();
+        lb_saldo_deposito = new javax.swing.JLabel();
+        txt_ingreso_saldo = new javax.swing.JTextField();
+        btn_hacer_deposito = new javax.swing.JButton();
+        jp_girar = new javax.swing.JPanel();
+        lb_titulo_girar = new javax.swing.JLabel();
+        lb_ingrese_rut1 = new javax.swing.JLabel();
+        txt_ingreso_rut1 = new javax.swing.JTextField();
+        lb_saldo_giro = new javax.swing.JLabel();
+        txt_ingreso_monto_giro = new javax.swing.JTextField();
+        btn_hacer_giro = new javax.swing.JButton();
+        jp_consulta_saldo = new javax.swing.JPanel();
+        lb_titulo_consulta_saldo = new javax.swing.JLabel();
+        lb_ingrese_rut2 = new javax.swing.JLabel();
+        txt_ingreso_rut2 = new javax.swing.JTextField();
+        lb_saldo_disponible = new javax.swing.JLabel();
+        txt_muestra_saldo = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(767, 520));
 
         jToolBar1.setRollover(true);
+        jToolBar1.setPreferredSize(new java.awt.Dimension(234, 84));
 
-        jButton1.setText("Depositar");
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton1);
+        btn_depositar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/deposito.png"))); // NOI18N
+        btn_depositar.setText("Depositar");
+        btn_depositar.setFocusable(false);
+        btn_depositar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_depositar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_depositar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_depositarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btn_depositar);
 
-        jButton2.setText("Girar");
-        jButton2.setFocusable(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton2);
+        btn_girar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/giro.png"))); // NOI18N
+        btn_girar.setText("Girar");
+        btn_girar.setFocusable(false);
+        btn_girar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_girar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_girar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_girarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btn_girar);
 
-        jButton3.setText("Consultar Saldo");
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton3);
+        btn_consulta_saldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/ver saldo.png"))); // NOI18N
+        btn_consulta_saldo.setText("Consultar Saldo");
+        btn_consulta_saldo.setFocusable(false);
+        btn_consulta_saldo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_consulta_saldo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_consulta_saldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_consulta_saldoActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btn_consulta_saldo);
 
-        jButton4.setText("Inicio");
-        jButton4.setFocusable(false);
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton4);
+        btn_inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/home.png"))); // NOI18N
+        btn_inicio.setText("Inicio");
+        btn_inicio.setFocusable(false);
+        btn_inicio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_inicio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_inicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_inicioActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btn_inicio);
+
+        btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/exit.png"))); // NOI18N
+        btn_salir.setText("Salir");
+        btn_salir.setFocusable(false);
+        btn_salir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_salir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salirActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btn_salir);
+
+        lb_titulo_depositar.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
+        lb_titulo_depositar.setText("Depositar");
+
+        lb_ingrese_rut.setText("Ingrese Rut:");
+
+        txt_ingreso_rut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_ingreso_rutActionPerformed(evt);
+            }
+        });
+
+        lb_saldo_deposito.setText("Saldo a Depositar:");
+
+        txt_ingreso_saldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_ingreso_saldoActionPerformed(evt);
+            }
+        });
+
+        btn_hacer_deposito.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btn_hacer_deposito.setText("Hacer Depósito");
+        btn_hacer_deposito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_hacer_depositoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jp_depositarLayout = new javax.swing.GroupLayout(jp_depositar);
+        jp_depositar.setLayout(jp_depositarLayout);
+        jp_depositarLayout.setHorizontalGroup(
+            jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_depositarLayout.createSequentialGroup()
+                .addGroup(jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_depositarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lb_titulo_depositar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_depositarLayout.createSequentialGroup()
+                        .addGap(227, 227, 227)
+                        .addGroup(jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jp_depositarLayout.createSequentialGroup()
+                                .addComponent(lb_ingrese_rut)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_ingreso_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jp_depositarLayout.createSequentialGroup()
+                                .addComponent(lb_saldo_deposito)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_ingreso_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jp_depositarLayout.createSequentialGroup()
+                        .addGap(290, 290, 290)
+                        .addComponent(btn_hacer_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(264, Short.MAX_VALUE))
+        );
+        jp_depositarLayout.setVerticalGroup(
+            jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_depositarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lb_titulo_depositar)
+                .addGap(55, 55, 55)
+                .addGroup(jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_ingrese_rut)
+                    .addComponent(txt_ingreso_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_saldo_deposito)
+                    .addComponent(txt_ingreso_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(71, 71, 71)
+                .addComponent(btn_hacer_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        lb_titulo_girar.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
+        lb_titulo_girar.setText("Girar");
+
+        lb_ingrese_rut1.setText("Ingrese Rut:");
+
+        txt_ingreso_rut1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_ingreso_rut1ActionPerformed(evt);
+            }
+        });
+
+        lb_saldo_giro.setText("Saldo a Girar:");
+
+        txt_ingreso_monto_giro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_ingreso_monto_giroActionPerformed(evt);
+            }
+        });
+
+        btn_hacer_giro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btn_hacer_giro.setText("Hacer Giro");
+        btn_hacer_giro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_hacer_giroActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jp_girarLayout = new javax.swing.GroupLayout(jp_girar);
+        jp_girar.setLayout(jp_girarLayout);
+        jp_girarLayout.setHorizontalGroup(
+            jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_girarLayout.createSequentialGroup()
+                .addGroup(jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_girarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lb_titulo_girar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_girarLayout.createSequentialGroup()
+                        .addGap(227, 227, 227)
+                        .addGroup(jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jp_girarLayout.createSequentialGroup()
+                                .addComponent(lb_ingrese_rut1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_ingreso_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jp_girarLayout.createSequentialGroup()
+                                .addComponent(lb_saldo_giro)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_ingreso_monto_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jp_girarLayout.createSequentialGroup()
+                        .addGap(290, 290, 290)
+                        .addComponent(btn_hacer_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_girarLayout.setVerticalGroup(
+            jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_girarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lb_titulo_girar)
+                .addGap(55, 55, 55)
+                .addGroup(jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_ingrese_rut1)
+                    .addComponent(txt_ingreso_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_saldo_giro)
+                    .addComponent(txt_ingreso_monto_giro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(71, 71, 71)
+                .addComponent(btn_hacer_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        lb_titulo_consulta_saldo.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
+        lb_titulo_consulta_saldo.setText("Consulta Saldo");
+
+        lb_ingrese_rut2.setText("Ingrese Rut:");
+
+        txt_ingreso_rut2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_ingreso_rut2ActionPerformed(evt);
+            }
+        });
+
+        lb_saldo_disponible.setText("Saldo Disponible:");
+
+        txt_muestra_saldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_muestra_saldoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jp_consulta_saldoLayout = new javax.swing.GroupLayout(jp_consulta_saldo);
+        jp_consulta_saldo.setLayout(jp_consulta_saldoLayout);
+        jp_consulta_saldoLayout.setHorizontalGroup(
+            jp_consulta_saldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_consulta_saldoLayout.createSequentialGroup()
+                .addGroup(jp_consulta_saldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_consulta_saldoLayout.createSequentialGroup()
+                        .addGap(227, 227, 227)
+                        .addGroup(jp_consulta_saldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jp_consulta_saldoLayout.createSequentialGroup()
+                                .addComponent(lb_ingrese_rut2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_ingreso_rut2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jp_consulta_saldoLayout.createSequentialGroup()
+                                .addComponent(lb_saldo_disponible)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_muestra_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jp_consulta_saldoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lb_titulo_consulta_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_consulta_saldoLayout.setVerticalGroup(
+            jp_consulta_saldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_consulta_saldoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lb_titulo_consulta_saldo)
+                .addGap(55, 55, 55)
+                .addGroup(jp_consulta_saldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_ingrese_rut2)
+                    .addComponent(txt_ingreso_rut2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jp_consulta_saldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_saldo_disponible)
+                    .addComponent(txt_muestra_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(106, Short.MAX_VALUE))
+        );
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -76,17 +338,90 @@ public class gestionarCuenta extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jp_depositar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jp_girar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jp_consulta_saldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 447, Short.MAX_VALUE))
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jp_depositar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jp_girar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jp_consulta_saldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_depositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_depositarActionPerformed
+        jp_depositar.setVisible(true);
+        jp_girar.setVisible(false);
+        jp_consulta_saldo.setVisible(false);
+    }//GEN-LAST:event_btn_depositarActionPerformed
+
+    private void txt_ingreso_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ingreso_rutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_ingreso_rutActionPerformed
+
+    private void txt_ingreso_saldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ingreso_saldoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_ingreso_saldoActionPerformed
+
+    private void btn_hacer_depositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hacer_depositoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_hacer_depositoActionPerformed
+
+    private void txt_ingreso_rut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ingreso_rut1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_ingreso_rut1ActionPerformed
+
+    private void txt_ingreso_monto_giroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ingreso_monto_giroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_ingreso_monto_giroActionPerformed
+
+    private void btn_hacer_giroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hacer_giroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_hacer_giroActionPerformed
+
+    private void btn_girarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_girarActionPerformed
+        jp_depositar.setVisible(false);
+        jp_girar.setVisible(true);
+        jp_consulta_saldo.setVisible(false);
+    }//GEN-LAST:event_btn_girarActionPerformed
+
+    private void txt_ingreso_rut2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ingreso_rut2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_ingreso_rut2ActionPerformed
+
+    private void txt_muestra_saldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_muestra_saldoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_muestra_saldoActionPerformed
+
+    private void btn_consulta_saldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consulta_saldoActionPerformed
+        jp_depositar.setVisible(false);
+        jp_girar.setVisible(false);
+        jp_consulta_saldo.setVisible(true);
+    }//GEN-LAST:event_btn_consulta_saldoActionPerformed
+
+    private void btn_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicioActionPerformed
+        Home home = new Home();
+        home.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_inicioActionPerformed
+
+    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btn_salirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,13 +459,34 @@ public class gestionarCuenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btn_consulta_saldo;
+    private javax.swing.JButton btn_depositar;
+    private javax.swing.JButton btn_girar;
+    private javax.swing.JButton btn_hacer_deposito;
+    private javax.swing.JButton btn_hacer_giro;
+    private javax.swing.JButton btn_inicio;
+    private javax.swing.JButton btn_salir;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JPanel jp_consulta_saldo;
+    private javax.swing.JPanel jp_depositar;
+    private javax.swing.JPanel jp_girar;
+    private javax.swing.JLabel lb_ingrese_rut;
+    private javax.swing.JLabel lb_ingrese_rut1;
+    private javax.swing.JLabel lb_ingrese_rut2;
+    private javax.swing.JLabel lb_saldo_deposito;
+    private javax.swing.JLabel lb_saldo_disponible;
+    private javax.swing.JLabel lb_saldo_giro;
+    private javax.swing.JLabel lb_titulo_consulta_saldo;
+    private javax.swing.JLabel lb_titulo_depositar;
+    private javax.swing.JLabel lb_titulo_girar;
+    private javax.swing.JTextField txt_ingreso_monto_giro;
+    private javax.swing.JTextField txt_ingreso_rut;
+    private javax.swing.JTextField txt_ingreso_rut1;
+    private javax.swing.JTextField txt_ingreso_rut2;
+    private javax.swing.JTextField txt_ingreso_saldo;
+    private javax.swing.JTextField txt_muestra_saldo;
     // End of variables declaration//GEN-END:variables
 }
