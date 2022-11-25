@@ -1,30 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bank.gestionarCuenta;
 
+import bank.classBank.Cliente;
 import bank.westbankinterface.Home;
 import javax.swing.JOptionPane;
 import bank.functions.funcionesBanco;
+import java.util.LinkedList;
+import java.util.List;
 
-/**
- *
- * @author Reizewr
- */
 public class gestionarCuenta extends javax.swing.JFrame {
+    String rut = new String();
+    String monto = new String();
+    List<Cliente> clienteBanco = new LinkedList<>();
 
-    /**
-     * Creates new form gestionarCuenta
-     */
     public gestionarCuenta() {
         initComponents();
         setLocationRelativeTo(null);
         jp_depositar.setVisible(false);
         jp_girar.setVisible(false);
         jp_transferencia.setVisible(false);
-        String rut = new String();
     }
 
     /**
@@ -72,6 +65,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(900, 523));
 
         jToolBar1.setRollover(true);
         jToolBar1.setPreferredSize(new java.awt.Dimension(234, 84));
@@ -89,7 +83,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
         jToolBar1.add(btn_depositar);
 
         btn_girar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/giro.png"))); // NOI18N
-        btn_girar.setText("Girar");
+        btn_girar.setText("        Girar        ");
         btn_girar.setFocusable(false);
         btn_girar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_girar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -101,7 +95,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
         jToolBar1.add(btn_girar);
 
         btn_transferir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/transferir.png"))); // NOI18N
-        btn_transferir.setText("Transferir");
+        btn_transferir.setText("      Transferir     ");
         btn_transferir.setFocusable(false);
         btn_transferir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_transferir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -113,7 +107,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
         jToolBar1.add(btn_transferir);
 
         btn_inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/home.png"))); // NOI18N
-        btn_inicio.setText("Inicio");
+        btn_inicio.setText("        Inicio        ");
         btn_inicio.setFocusable(false);
         btn_inicio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_inicio.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -125,7 +119,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
         jToolBar1.add(btn_inicio);
 
         btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/exit.png"))); // NOI18N
-        btn_salir.setText("Salir");
+        btn_salir.setText("        Salir        ");
         btn_salir.setFocusable(false);
         btn_salir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_salir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -446,7 +440,32 @@ public class gestionarCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_saldo_depositoActionPerformed
 
     private void btn_hacer_depositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hacer_depositoActionPerformed
-        // TODO add your handling code here:
+        monto = txt_saldo_deposito.getText();
+            int montoInt = Integer.parseInt(monto);
+
+            if(monto.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Ingresar monto", "Advertencia", JOptionPane.OK_OPTION);
+            }
+            else{
+                for(int i = 0;i<=clienteBanco.size();i++){
+                    if(clienteBanco.get(i).getRut().equals(rut)){
+                        if(funcionesBanco.isNumeric(monto)){
+                            if(montoInt < 0 || montoInt == 0){
+                                JOptionPane.showMessageDialog(null, "Ingresar monto superior a 0", "Advertencia", JOptionPane.OK_OPTION);
+                            }else{
+                                int nsaldo = clienteBanco.get(i).getCuenta().getSaldo() + Integer.parseInt(monto);
+                                clienteBanco.get(i).getCuenta().setSaldo(nsaldo);
+                                break;
+                            }
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null, "Ingresar monto numerico", "Advertencia", JOptionPane.OK_OPTION);
+                            break;
+                            //limpia todo como si ingresarass de nuevo
+                        }
+                    }
+                }
+            }
     }//GEN-LAST:event_btn_hacer_depositoActionPerformed
 
     private void txt_ingreso_rut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ingreso_rut1ActionPerformed
@@ -458,7 +477,32 @@ public class gestionarCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_saldo_giroActionPerformed
 
     private void btn_hacer_giroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hacer_giroActionPerformed
-        // TODO add your handling code here:
+        monto = txt_saldo_deposito.getText();
+            int montoInt = Integer.parseInt(monto);
+
+            if(monto.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Ingresar monto", "Advertencia", JOptionPane.OK_OPTION);
+            }
+            else{
+                for(int i = 0;i<=clienteBanco.size();i++){
+                    if(clienteBanco.get(i).getRut().equals(rut)){
+                        if(funcionesBanco.isNumeric(monto)){
+                            if(montoInt < 0 || montoInt == 0){
+                                JOptionPane.showMessageDialog(null, "Ingresar monto superior a 0", "Advertencia", JOptionPane.OK_OPTION);
+                            }else{
+                                int nsaldo = clienteBanco.get(i).getCuenta().getSaldo() - Integer.parseInt(monto);
+                                clienteBanco.get(i).getCuenta().setSaldo(nsaldo);
+                                break;
+                            }
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null, "Ingresar monto numerico", "Advertencia", JOptionPane.OK_OPTION);
+                            break;
+                            //limpia todo como si ingresarass de nuevo
+                        }
+                    }
+                }
+            }
     }//GEN-LAST:event_btn_hacer_giroActionPerformed
 
     private void btn_girarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_girarActionPerformed
@@ -495,20 +539,77 @@ public class gestionarCuenta extends javax.swing.JFrame {
 
     private void btn_validar_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_rutActionPerformed
         if(txt_ingreso_rut.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Ingrese rut para validación", "Advertencia", JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(null, "Ingrese rut para validacion", "Advertencia", JOptionPane.OK_OPTION);
+            txt_ingreso_rut.setEnabled(true);
         }
         else{
-            txt_saldo_deposito.setEnabled(true);
+            if(funcionesBanco.isNumeric(txt_ingreso_rut.getText())){
+                if(txt_ingreso_rut.getText().length() < 8 || txt_ingreso_rut.getText().length() > 9){
+                    JOptionPane.showMessageDialog(null, "Ingresar rut valido sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
+                    txt_ingreso_rut.setEnabled(true);
+                }
+                else{
+                    rut = funcionesBanco.checkRut(txt_ingreso_rut.getText());
+					for(int i = 0;i<=clienteBanco.size();i++){
+						if(clienteBanco.size()>0){
+							if(!clienteBanco.get(i).getRut().equals(rut)||clienteBanco.size()==0){
+								JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
+								break;
+							}
+							else{
+								txt_saldo_deposito.setEnabled(true);
+								txt_ingreso_rut.setEnabled(false);
+							}
+						}
+						else{
+							JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
+							break;
+						}
+					}			                    
+                }   
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Ingresar valor numerico, recuerde que el rut debe ir sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
+                txt_ingreso_rut.setEnabled(true);
+            }
         }
-
     }//GEN-LAST:event_btn_validar_rutActionPerformed
 
     private void btn_validar_rut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_rut1ActionPerformed
-        if(txt_ingreso_rut1.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Ingrese rut para validación", "Advertencia", JOptionPane.OK_OPTION);
+        if(txt_ingreso_rut.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese rut para validacion", "Advertencia", JOptionPane.OK_OPTION);
+            txt_ingreso_rut.setEnabled(true);
         }
         else{
-            txt_saldo_giro.setEnabled(true);
+            if(funcionesBanco.isNumeric(txt_ingreso_rut.getText())){
+                if(txt_ingreso_rut.getText().length() < 8 || txt_ingreso_rut.getText().length() > 9){
+                    JOptionPane.showMessageDialog(null, "Ingresar rut valido sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
+                    txt_ingreso_rut.setEnabled(true);
+                }
+                else{
+                    rut = funcionesBanco.checkRut(txt_ingreso_rut.getText());
+					for(int i = 0;i<=clienteBanco.size();i++){
+						if(clienteBanco.size()>0){
+							if(!clienteBanco.get(i).getRut().equals(rut)||clienteBanco.size()==0){
+								JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
+								break;
+							}
+							else{
+								txt_saldo_deposito.setEnabled(true);
+								txt_ingreso_rut.setEnabled(false);
+							}
+						}
+						else{
+							JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
+							break;
+						}
+					}			                    
+                }   
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Ingresar valor numerico, recuerde que el rut debe ir sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
+                txt_ingreso_rut.setEnabled(true);
+            }
         }
     }//GEN-LAST:event_btn_validar_rut1ActionPerformed
 
