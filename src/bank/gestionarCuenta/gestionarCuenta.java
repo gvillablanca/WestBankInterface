@@ -6,6 +6,7 @@
 package bank.gestionarCuenta;
 
 import bank.westbankinterface.Home;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,6 +47,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
         lb_saldo_deposito = new javax.swing.JLabel();
         txt_ingreso_saldo = new javax.swing.JTextField();
         btn_hacer_deposito = new javax.swing.JButton();
+        btn_validar_rut = new javax.swing.JButton();
         jp_girar = new javax.swing.JPanel();
         lb_titulo_girar = new javax.swing.JLabel();
         lb_ingrese_rut1 = new javax.swing.JLabel();
@@ -53,12 +55,14 @@ public class gestionarCuenta extends javax.swing.JFrame {
         lb_saldo_giro = new javax.swing.JLabel();
         txt_ingreso_monto_giro = new javax.swing.JTextField();
         btn_hacer_giro = new javax.swing.JButton();
+        btn_validar_rut1 = new javax.swing.JButton();
         jp_consulta_saldo = new javax.swing.JPanel();
         lb_titulo_consulta_saldo = new javax.swing.JLabel();
         lb_ingrese_rut2 = new javax.swing.JLabel();
         txt_ingreso_rut2 = new javax.swing.JTextField();
         lb_saldo_disponible = new javax.swing.JLabel();
         txt_muestra_saldo = new javax.swing.JTextField();
+        btn_validar_rut2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -155,6 +159,13 @@ public class gestionarCuenta extends javax.swing.JFrame {
             }
         });
 
+        btn_validar_rut.setText("Validar RUT");
+        btn_validar_rut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_validar_rutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jp_depositarLayout = new javax.swing.GroupLayout(jp_depositar);
         jp_depositar.setLayout(jp_depositarLayout);
         jp_depositarLayout.setHorizontalGroup(
@@ -174,21 +185,24 @@ public class gestionarCuenta extends javax.swing.JFrame {
                             .addGroup(jp_depositarLayout.createSequentialGroup()
                                 .addComponent(lb_saldo_deposito)
                                 .addGap(18, 18, 18)
-                                .addComponent(txt_ingreso_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txt_ingreso_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29)
+                        .addComponent(btn_validar_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jp_depositarLayout.createSequentialGroup()
                         .addGap(290, 290, 290)
                         .addComponent(btn_hacer_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         jp_depositarLayout.setVerticalGroup(
             jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_depositarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lb_titulo_depositar)
-                .addGap(55, 55, 55)
+                .addGap(54, 54, 54)
                 .addGroup(jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lb_ingrese_rut)
-                    .addComponent(txt_ingreso_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_ingreso_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_validar_rut))
                 .addGap(18, 18, 18)
                 .addGroup(jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lb_saldo_deposito)
@@ -225,6 +239,13 @@ public class gestionarCuenta extends javax.swing.JFrame {
             }
         });
 
+        btn_validar_rut1.setText("Validar RUT");
+        btn_validar_rut1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_validar_rut1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jp_girarLayout = new javax.swing.GroupLayout(jp_girar);
         jp_girar.setLayout(jp_girarLayout);
         jp_girarLayout.setHorizontalGroup(
@@ -236,11 +257,13 @@ public class gestionarCuenta extends javax.swing.JFrame {
                         .addComponent(lb_titulo_girar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jp_girarLayout.createSequentialGroup()
                         .addGap(227, 227, 227)
-                        .addGroup(jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jp_girarLayout.createSequentialGroup()
                                 .addComponent(lb_ingrese_rut1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txt_ingreso_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(22, 22, 22)
+                                .addComponent(txt_ingreso_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(56, 56, 56)
+                                .addComponent(btn_validar_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jp_girarLayout.createSequentialGroup()
                                 .addComponent(lb_saldo_giro)
                                 .addGap(18, 18, 18)
@@ -248,17 +271,18 @@ public class gestionarCuenta extends javax.swing.JFrame {
                     .addGroup(jp_girarLayout.createSequentialGroup()
                         .addGap(290, 290, 290)
                         .addComponent(btn_hacer_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         jp_girarLayout.setVerticalGroup(
             jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_girarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lb_titulo_girar)
-                .addGap(55, 55, 55)
+                .addGap(54, 54, 54)
                 .addGroup(jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lb_ingrese_rut1)
-                    .addComponent(txt_ingreso_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_ingreso_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_validar_rut1))
                 .addGap(18, 18, 18)
                 .addGroup(jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lb_saldo_giro)
@@ -287,6 +311,13 @@ public class gestionarCuenta extends javax.swing.JFrame {
             }
         });
 
+        btn_validar_rut2.setText("Validar RUT");
+        btn_validar_rut2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_validar_rut2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jp_consulta_saldoLayout = new javax.swing.GroupLayout(jp_consulta_saldo);
         jp_consulta_saldo.setLayout(jp_consulta_saldoLayout);
         jp_consulta_saldoLayout.setHorizontalGroup(
@@ -303,26 +334,29 @@ public class gestionarCuenta extends javax.swing.JFrame {
                             .addGroup(jp_consulta_saldoLayout.createSequentialGroup()
                                 .addComponent(lb_saldo_disponible)
                                 .addGap(18, 18, 18)
-                                .addComponent(txt_muestra_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txt_muestra_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(43, 43, 43)
+                        .addComponent(btn_validar_rut2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jp_consulta_saldoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lb_titulo_consulta_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         jp_consulta_saldoLayout.setVerticalGroup(
             jp_consulta_saldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_consulta_saldoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lb_titulo_consulta_saldo)
-                .addGap(55, 55, 55)
+                .addGap(54, 54, 54)
                 .addGroup(jp_consulta_saldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lb_ingrese_rut2)
-                    .addComponent(txt_ingreso_rut2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_ingreso_rut2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_validar_rut2))
                 .addGap(18, 18, 18)
                 .addGroup(jp_consulta_saldoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lb_saldo_disponible)
                     .addComponent(txt_muestra_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -366,6 +400,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
         jp_depositar.setVisible(true);
         jp_girar.setVisible(false);
         jp_consulta_saldo.setVisible(false);
+        txt_ingreso_saldo.setEnabled(false);
     }//GEN-LAST:event_btn_depositarActionPerformed
 
     private void txt_ingreso_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ingreso_rutActionPerformed
@@ -422,6 +457,34 @@ public class gestionarCuenta extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_salirActionPerformed
 
+    private void btn_validar_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_rutActionPerformed
+        if(txt_ingreso_rut.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese rut para validación", "Advertencia", JOptionPane.OK_OPTION);
+        }
+        else{
+            txt_ingreso_saldo.setEnabled(true);
+        }
+
+    }//GEN-LAST:event_btn_validar_rutActionPerformed
+
+    private void btn_validar_rut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_rut1ActionPerformed
+        if(txt_ingreso_rut1.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese rut para validación", "Advertencia", JOptionPane.OK_OPTION);
+        }
+        else{
+            txt_ingreso_monto_giro.setEnabled(true);
+        }
+    }//GEN-LAST:event_btn_validar_rut1ActionPerformed
+
+    private void btn_validar_rut2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_rut2ActionPerformed
+        if(txt_ingreso_rut2.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese rut para validación", "Advertencia", JOptionPane.OK_OPTION);
+        }
+        else{
+            txt_muestra_saldo.setEnabled(true);
+        }
+    }//GEN-LAST:event_btn_validar_rut2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -465,6 +528,9 @@ public class gestionarCuenta extends javax.swing.JFrame {
     private javax.swing.JButton btn_hacer_giro;
     private javax.swing.JButton btn_inicio;
     private javax.swing.JButton btn_salir;
+    private javax.swing.JButton btn_validar_rut;
+    private javax.swing.JButton btn_validar_rut1;
+    private javax.swing.JButton btn_validar_rut2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
