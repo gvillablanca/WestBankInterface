@@ -1,5 +1,8 @@
 package bank.functions;
 
+import bank.classBank.Cliente;
+import java.util.List;
+
 public class funcionesBanco {    
     public static boolean isNumeric(String cadena){
 	try {
@@ -32,4 +35,9 @@ public class funcionesBanco {
             return format;
         }
     }
+    
+    public static List<Cliente> clienteBancoGet(List<Cliente> clienteBanco){
+        List<Cliente> clienteBancoIn = clienteBanco; 
+        return clienteBancoIn;
+    } 
 }

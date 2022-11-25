@@ -1,20 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bank.gestionarCliente;
 
+import bank.classBank.Cliente;
+import bank.classBank.Cuenta;
 import bank.functions.funcionesBanco;
 import bank.westbankinterface.Home;
+import java.util.LinkedList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Reizewr
- */
 public class GestionarCliente extends javax.swing.JFrame {
+    List<Cliente> clienteBanco = new LinkedList<>();
+        
     String rut = new String();
+    String nombre = new String();
+    String apellidoPaterno = new String();
+    String apellidoMaterno = new String();
+    String domicilio = new String();
+    String comuna = new String();
+    String telefono = new String();
+    String numeroCuenta = new String();
+    int saldo = 0;
+    
     public GestionarCliente() {
         initComponents();
         setLocationRelativeTo(null);
@@ -79,10 +85,14 @@ public class GestionarCliente extends javax.swing.JFrame {
         lb_numeroCuenta = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         lb_rut = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        lb_saldo = new javax.swing.JLabel();
+        btn_nueva_consulta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 523));
 
+        jToolBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar1.setRollover(true);
 
         btn_registrar_cliente_m.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/add_client.png"))); // NOI18N
@@ -112,7 +122,7 @@ public class GestionarCliente extends javax.swing.JFrame {
         jToolBar1.add(btn_ver_datos_m);
 
         btn_inicio_m.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/home.png"))); // NOI18N
-        btn_inicio_m.setText("Volver Inicio  ");
+        btn_inicio_m.setText("        Volver Inicio    ");
         btn_inicio_m.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_inicio_m.setFocusable(false);
         btn_inicio_m.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -125,7 +135,7 @@ public class GestionarCliente extends javax.swing.JFrame {
         jToolBar1.add(btn_inicio_m);
 
         btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/exit.png"))); // NOI18N
-        btn_salir.setText("Salir");
+        btn_salir.setText("         Salir        ");
         btn_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_salir.setFocusable(false);
         btn_salir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -137,10 +147,12 @@ public class GestionarCliente extends javax.swing.JFrame {
         });
         jToolBar1.add(btn_salir);
 
+        jp_registrar_cliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jp_registrar_cliente.setEnabled(false);
 
         jLabel9.setText("Ingrese rut de usuario sin punto ni guiones");
 
+        btn_validar_rut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/search.png"))); // NOI18N
         btn_validar_rut.setText("Validar rut");
         btn_validar_rut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_validar_rut.addActionListener(new java.awt.event.ActionListener() {
@@ -185,6 +197,7 @@ public class GestionarCliente extends javax.swing.JFrame {
 
         jLabel6.setText("Telefono");
 
+        btn_crear_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/salvar.png"))); // NOI18N
         btn_crear_cliente.setText("Crear Cliente");
         btn_crear_cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_crear_cliente.addActionListener(new java.awt.event.ActionListener() {
@@ -193,6 +206,7 @@ public class GestionarCliente extends javax.swing.JFrame {
             }
         });
 
+        btn_validar_datos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/finalizar.png"))); // NOI18N
         btn_validar_datos.setText("Validar datos");
         btn_validar_datos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_validar_datos.addActionListener(new java.awt.event.ActionListener() {
@@ -251,7 +265,7 @@ public class GestionarCliente extends javax.swing.JFrame {
                                 .addComponent(txf_direccion, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txf_apMaterno, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addComponent(jp_numero_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_formulario_clienteLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btn_validar_datos)
@@ -286,7 +300,7 @@ public class GestionarCliente extends javax.swing.JFrame {
                 .addGroup(jp_formulario_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txf_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jp_numero_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_formulario_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -300,15 +314,13 @@ public class GestionarCliente extends javax.swing.JFrame {
         jp_registrar_clienteLayout.setHorizontalGroup(
             jp_registrar_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_registrar_clienteLayout.createSequentialGroup()
-                .addGroup(jp_registrar_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addContainerGap()
+                .addGroup(jp_registrar_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_registrar_clienteLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jp_registrar_clienteLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(txf_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(btn_validar_rut)))
+                        .addComponent(txf_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_validar_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jp_formulario_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -317,14 +329,16 @@ public class GestionarCliente extends javax.swing.JFrame {
             .addGroup(jp_registrar_clienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel9)
-                .addGap(8, 8, 8)
+                .addGap(10, 10, 10)
                 .addGroup(jp_registrar_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txf_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_validar_rut))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btn_validar_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
                 .addComponent(jp_formulario_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        jp_ver_datos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txf_rut_datos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -332,6 +346,7 @@ public class GestionarCliente extends javax.swing.JFrame {
             }
         });
 
+        btn_validar_rut1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/search.png"))); // NOI18N
         btn_validar_rut1.setText("Validar rut");
         btn_validar_rut1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_validar_rut1.addActionListener(new java.awt.event.ActionListener() {
@@ -341,6 +356,8 @@ public class GestionarCliente extends javax.swing.JFrame {
         });
 
         jLabel10.setText("Ingrese rut de usuario sin punto ni guiones");
+
+        jp_formulario_datos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel8.setText("Nombre");
 
@@ -358,6 +375,16 @@ public class GestionarCliente extends javax.swing.JFrame {
 
         jLabel16.setText("Rut");
 
+        jLabel17.setText("Saldo");
+
+        btn_nueva_consulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/novo.png"))); // NOI18N
+        btn_nueva_consulta.setText("Nueva Consulta");
+        btn_nueva_consulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nueva_consultaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jp_formulario_datosLayout = new javax.swing.GroupLayout(jp_formulario_datos);
         jp_formulario_datos.setLayout(jp_formulario_datosLayout);
         jp_formulario_datosLayout.setHorizontalGroup(
@@ -373,7 +400,8 @@ public class GestionarCliente extends javax.swing.JFrame {
                         .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel27)
-                    .addComponent(jLabel16))
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17))
                 .addGap(33, 33, 33)
                 .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lb_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -383,37 +411,42 @@ public class GestionarCliente extends javax.swing.JFrame {
                     .addComponent(lb_comuna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lb_telefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lb_numeroCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lb_rut, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
+                    .addComponent(lb_rut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_saldo, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_formulario_datosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_nueva_consulta)
+                .addGap(101, 101, 101))
         );
         jp_formulario_datosLayout.setVerticalGroup(
             jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_formulario_datosLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(lb_rut))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(lb_nombre))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lb_aPaterno))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(lb_aMaterno))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(lb_direccion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(lb_comuna))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(lb_telefono))
@@ -421,7 +454,12 @@ public class GestionarCliente extends javax.swing.JFrame {
                 .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
                     .addComponent(lb_numeroCuenta))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(lb_saldo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_nueva_consulta))
         );
 
         javax.swing.GroupLayout jp_ver_datosLayout = new javax.swing.GroupLayout(jp_ver_datos);
@@ -431,16 +469,16 @@ public class GestionarCliente extends javax.swing.JFrame {
             .addGroup(jp_ver_datosLayout.createSequentialGroup()
                 .addGroup(jp_ver_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_ver_datosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jp_formulario_datos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jp_ver_datosLayout.createSequentialGroup()
-                        .addGroup(jp_ver_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
-                            .addGroup(jp_ver_datosLayout.createSequentialGroup()
-                                .addComponent(txf_rut_datos)
-                                .addGap(44, 44, 44)
+                        .addGroup(jp_ver_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_ver_datosLayout.createSequentialGroup()
+                                .addComponent(txf_rut_datos, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
                                 .addComponent(btn_validar_rut1)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 215, Short.MAX_VALUE))
+                    .addGroup(jp_ver_datosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jp_formulario_datos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jp_ver_datosLayout.setVerticalGroup(
@@ -452,9 +490,9 @@ public class GestionarCliente extends javax.swing.JFrame {
                 .addGroup(jp_ver_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txf_rut_datos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_validar_rut1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jp_formulario_datos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -462,13 +500,8 @@ public class GestionarCliente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jp_ver_datos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jp_registrar_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addComponent(jp_registrar_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jp_ver_datos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -492,19 +525,23 @@ public class GestionarCliente extends javax.swing.JFrame {
     private void btn_validar_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_rutActionPerformed
         if(txf_rut.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese rut para validación", "Advertencia", JOptionPane.OK_OPTION);
+            txf_rut.setEnabled(true);
         }
         else{
             if(funcionesBanco.isNumeric(txf_rut.getText())){
                 if(txf_rut.getText().length() < 8 || txf_rut.getText().length() > 9){
                     JOptionPane.showMessageDialog(null, "Ingresar rut valido sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
+                    txf_rut.setEnabled(true);
                 }
                 else{
                     rut = funcionesBanco.checkRut(txf_rut.getText());
                     jp_formulario_cliente.setVisible(true);
+                    txf_rut.setEnabled(false);
                 }   
             }
             else{
                 JOptionPane.showMessageDialog(null, "Ingresar valor numerico, recuerde que el rut debe ir sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
+                txf_rut.setEnabled(true);
             }
         }
     }//GEN-LAST:event_btn_validar_rutActionPerformed
@@ -518,7 +555,36 @@ public class GestionarCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ingrese numero de cuenta para crear cliente", "Advertencia", JOptionPane.OK_OPTION);
         }
         else{
-            JOptionPane.showMessageDialog(null, "Cliente Creado exitosamente!", "Información", JOptionPane.INFORMATION_MESSAGE);
+            if(funcionesBanco.isNumeric(txf_numeroCuenta.getText())){
+                if(txf_numeroCuenta.getText().length() < 9 || txf_numeroCuenta.getText().length() <= 0){
+                    JOptionPane.showMessageDialog(null, "Ingrese numero de cuenta valido", "Advertencia", JOptionPane.OK_OPTION);
+                }
+                else{
+                    Cliente cliente = new Cliente();
+                    Cuenta cuenta = new Cuenta();
+                    
+                    cliente.setRut(rut);
+                    cliente.setNombre(nombre.toUpperCase());
+                    cliente.setApellidoPaterno(apellidoPaterno.toUpperCase());
+                    cliente.setApellidoMaterno(apellidoMaterno.toUpperCase());
+                    cliente.setDomicilio(domicilio.toUpperCase());
+                    cliente.setComuna(comuna.toUpperCase());
+                    cliente.setTelefono(telefono);                    
+                    cuenta.setNumeroCuenta(Integer.parseInt(txf_numeroCuenta.getText()));
+                    cuenta.setSaldo(saldo);
+                    cliente.setCuenta(cuenta);
+                    clienteBanco.add(cliente);
+                    JOptionPane.showMessageDialog(null, "Cliente Creado exitosamente!", "Información", JOptionPane.INFORMATION_MESSAGE);
+                    txf_rut.setText(""); txf_nombre.setText(""); txf_apPaterno.setText(""); txf_apMaterno.setText("");txf_direccion.setText(""); txf_comuna.setText(""); txf_telefono.setText(""); txf_numeroCuenta.setText("");
+                    jp_formulario_cliente.setVisible(false);
+                    jp_numero_cuenta.setVisible(false);
+                    txf_rut.setEnabled(true);
+                    funcionesBanco.clienteBancoGet(clienteBanco);
+                }                
+            }
+            else{
+               JOptionPane.showMessageDialog(null, "Ingresar valor numerico", "Advertencia", JOptionPane.OK_OPTION); 
+            }            
         }
     }//GEN-LAST:event_btn_crear_clienteActionPerformed
 
@@ -527,6 +593,7 @@ public class GestionarCliente extends javax.swing.JFrame {
         jp_ver_datos.setVisible(false);
         jp_formulario_cliente.setVisible(false);
         jp_numero_cuenta.setVisible(false);
+        txf_rut.setText(""); txf_nombre.setText(""); txf_apPaterno.setText(""); txf_apMaterno.setText("");txf_direccion.setText(""); txf_comuna.setText(""); txf_telefono.setText(""); txf_numeroCuenta.setText("");
     }//GEN-LAST:event_btn_registrar_cliente_mActionPerformed
 
     private void txf_rut_datosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_rut_datosActionPerformed
@@ -536,17 +603,49 @@ public class GestionarCliente extends javax.swing.JFrame {
     private void btn_validar_rut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_rut1ActionPerformed
         if(txf_rut_datos.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese rut para validación", "Advertencia", JOptionPane.OK_OPTION);
+            txf_rut_datos.setEnabled(true);
         }
         else{
-            jp_formulario_datos.setVisible(true);
-            lb_rut.setText(rut);
-            lb_nombre.setText(": hola");
-            lb_aPaterno.setText(": hola");
-            lb_aMaterno.setText(": hola");
-            lb_direccion.setText(": hola");
-            lb_comuna.setText(": hola");
-            lb_telefono.setText(": hola");
-            lb_numeroCuenta.setText(": hola");
+            if(funcionesBanco.isNumeric(txf_rut_datos.getText())){
+                if(txf_rut_datos.getText().length() < 8 || txf_rut_datos.getText().length() > 9){
+                    JOptionPane.showMessageDialog(null, "Ingresar rut valido sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
+                    txf_rut_datos.setEnabled(true);
+                }
+                else{
+                    rut = funcionesBanco.checkRut(txf_rut_datos.getText());
+                    txf_rut_datos.setEnabled(false);
+                    for(int i = 0;i<=clienteBanco.size();i++){
+                        if(clienteBanco.size()>0){
+                            if(clienteBanco.get(i).getRut().equals(rut)){
+                                jp_formulario_datos.setVisible(true);
+                                lb_rut.setText(": "+clienteBanco.get(i).getRut());
+                                lb_nombre.setText(": "+clienteBanco.get(i).getNombre());
+                                lb_aPaterno.setText(": "+clienteBanco.get(i).getApellidoPaterno());
+                                lb_aMaterno.setText(": "+clienteBanco.get(i).getApellidoMaterno());
+                                lb_direccion.setText(": "+clienteBanco.get(i).getDomicilio());
+                                lb_comuna.setText(": "+clienteBanco.get(i).getComuna());
+                                lb_telefono.setText(": "+clienteBanco.get(i).getTelefono());
+                                lb_numeroCuenta.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getNumeroCuenta()));
+                                lb_saldo.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getSaldo()));
+                                break;
+                            }
+                            else{
+                                JOptionPane.showMessageDialog(null, "Cliente no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
+                                txf_rut_datos.setEnabled(true);
+                                break;
+                            }
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null, "Cliente no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
+                            txf_rut_datos.setEnabled(true);
+                            break;
+                        }
+                    }                    
+                }   
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Ingresar valor numerico, recuerde que el rut debe ir sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
+            }
         }
     }//GEN-LAST:event_btn_validar_rut1ActionPerformed
 
@@ -568,14 +667,47 @@ public class GestionarCliente extends javax.swing.JFrame {
 
     private void btn_validar_datosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_datosActionPerformed
         if(txf_nombre.getText().isEmpty() || txf_apPaterno.getText().isEmpty() || 
-        txf_apMaterno.getText().isEmpty() || txf_direccion.getText().isEmpty() || txf_telefono.getText().isEmpty() ){
+        txf_apMaterno.getText().isEmpty() || txf_direccion.getText().isEmpty() ||txf_comuna.getText().isEmpty()|| txf_telefono.getText().isEmpty() ){
             JOptionPane.showMessageDialog(null, "Rellenar todos los campos para validación", "Advertencia", JOptionPane.OK_OPTION);
         }
         else{
-            jp_numero_cuenta.setVisible(true);
-            btn_validar_datos.setVisible(false);
+            if(funcionesBanco.isNumeric(txf_telefono.getText())){
+                int telefonoInt = Integer.parseInt(txf_telefono.getText());
+                if(telefonoInt == 0 || txf_telefono.getText().isEmpty() || telefonoInt < 0){
+                    JOptionPane.showMessageDialog(null, "Ingrese número de telefono mayor a 0", "Advertencia", JOptionPane.OK_OPTION);
+                }
+                else{
+                    rut = funcionesBanco.checkRut(txf_rut.getText());
+                    nombre = txf_nombre.getText();
+                    apellidoPaterno = txf_apPaterno.getText();
+                    apellidoMaterno = txf_apMaterno.getText();
+                    domicilio = txf_direccion.getText();
+                    comuna = txf_comuna.getText();
+                    telefono = txf_telefono.getText();
+                    jp_numero_cuenta.setVisible(true);
+                    btn_validar_datos.setVisible(false);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Ingrese numero de telefono valido, sin anteponer +56", "Advertencia", JOptionPane.OK_OPTION);
+            }
         }
     }//GEN-LAST:event_btn_validar_datosActionPerformed
+
+    private void btn_nueva_consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nueva_consultaActionPerformed
+        jp_formulario_datos.setVisible(false);
+        lb_rut.setText("");
+        lb_nombre.setText("");
+        lb_aPaterno.setText("");
+        lb_aMaterno.setText("");
+        lb_direccion.setText("");
+        lb_comuna.setText("");
+        lb_telefono.setText("");
+        lb_numeroCuenta.setText("");
+        lb_saldo.setText("");
+        txf_rut_datos.setText("");
+        txf_rut_datos.setEnabled(true);
+    }//GEN-LAST:event_btn_nueva_consultaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -615,6 +747,7 @@ public class GestionarCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_crear_cliente;
     private javax.swing.JButton btn_inicio_m;
+    private javax.swing.JButton btn_nueva_consulta;
     private javax.swing.JButton btn_registrar_cliente_m;
     private javax.swing.JButton btn_salir;
     private javax.swing.JButton btn_validar_datos;
@@ -629,6 +762,7 @@ public class GestionarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
@@ -651,6 +785,7 @@ public class GestionarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel lb_nombre;
     private javax.swing.JLabel lb_numeroCuenta;
     private javax.swing.JLabel lb_rut;
+    private javax.swing.JLabel lb_saldo;
     private javax.swing.JLabel lb_telefono;
     private javax.swing.JTextField txf_apMaterno;
     private javax.swing.JTextField txf_apPaterno;
