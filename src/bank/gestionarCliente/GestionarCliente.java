@@ -265,7 +265,7 @@ public class GestionarCliente extends javax.swing.JFrame {
                                 .addComponent(txf_direccion, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txf_apMaterno, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addComponent(jp_numero_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_formulario_clienteLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btn_validar_datos)
@@ -467,21 +467,18 @@ public class GestionarCliente extends javax.swing.JFrame {
         jp_ver_datosLayout.setHorizontalGroup(
             jp_ver_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_ver_datosLayout.createSequentialGroup()
-                .addGroup(jp_ver_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_ver_datosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txf_rut_datos, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
-                        .addComponent(btn_validar_rut1)
-                        .addGap(0, 215, Short.MAX_VALUE))
-                    .addGroup(jp_ver_datosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jp_formulario_datos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jp_ver_datosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jp_ver_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jp_formulario_datos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jp_ver_datosLayout.createSequentialGroup()
+                        .addGroup(jp_ver_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jp_ver_datosLayout.createSequentialGroup()
+                                .addComponent(txf_rut_datos, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(25, 25, 25)
+                                .addComponent(btn_validar_rut1))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jp_ver_datosLayout.setVerticalGroup(
             jp_ver_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -521,7 +518,27 @@ public class GestionarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txf_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_rutActionPerformed
-        // TODO add your handling code here:
+        if(txf_rut.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese rut para validación", "Advertencia", JOptionPane.OK_OPTION);
+            txf_rut.setEnabled(true);
+        }
+        else{
+            if(funcionesBanco.isNumeric(txf_rut.getText())){
+                if(txf_rut.getText().length() < 8 || txf_rut.getText().length() > 9){
+                    JOptionPane.showMessageDialog(null, "Ingresar rut valido sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
+                    txf_rut.setEnabled(true);
+                }
+                else{
+                    rut = funcionesBanco.checkRut(txf_rut.getText());
+                    jp_formulario_cliente.setVisible(true);
+                    txf_rut.setEnabled(false);
+                }   
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Ingresar valor numerico, recuerde que el rut debe ir sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
+                txf_rut.setEnabled(true);
+            }
+        }
     }//GEN-LAST:event_txf_rutActionPerformed
 
     private void btn_validar_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_rutActionPerformed
@@ -591,6 +608,7 @@ public class GestionarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_crear_clienteActionPerformed
 
     private void btn_registrar_cliente_mActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrar_cliente_mActionPerformed
+        txf_rut.setEnabled(true);
         jp_registrar_cliente.setVisible(true);
         jp_ver_datos.setVisible(false);
         jp_formulario_cliente.setVisible(false);
@@ -655,6 +673,7 @@ public class GestionarCliente extends javax.swing.JFrame {
         jp_registrar_cliente.setVisible(false);
         jp_ver_datos.setVisible(true);
         jp_formulario_datos.setVisible(false);
+        txf_rut_datos.setEnabled(true);
     }//GEN-LAST:event_btn_ver_datos_mActionPerformed
 
     private void btn_inicio_mActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicio_mActionPerformed
