@@ -6,6 +6,7 @@
 package bank.gestionarCliente;
 
 import bank.westbankinterface.Home;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,11 +37,11 @@ public class GestionarCliente extends javax.swing.JFrame {
         btn_registrar_cliente_m = new javax.swing.JButton();
         btn_ver_datos_m = new javax.swing.JButton();
         btn_inicio_m = new javax.swing.JButton();
-        btn_salir = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jp_registrar_cliente = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         btn_validar_rut = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txf_rut = new javax.swing.JTextField();
         jp_formulario_cliente = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txf_telefono = new javax.swing.JTextField();
@@ -60,29 +61,30 @@ public class GestionarCliente extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txf_numeroCuenta = new javax.swing.JTextField();
         jp_ver_datos = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
+        txf_rut_datos = new javax.swing.JTextField();
         btn_validar_rut1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jp_formulario_datos = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
+        lb_nombre = new javax.swing.JLabel();
+        lb_aPaterno = new javax.swing.JLabel();
+        lb_aMaterno = new javax.swing.JLabel();
+        lb_direccion = new javax.swing.JLabel();
+        lb_comuna = new javax.swing.JLabel();
+        lb_telefono = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        lb_numeroCuenta = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(700, 523));
 
         jToolBar1.setRollover(true);
 
@@ -108,6 +110,7 @@ public class GestionarCliente extends javax.swing.JFrame {
         });
         jToolBar1.add(btn_ver_datos_m);
 
+        btn_inicio_m.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/home.png"))); // NOI18N
         btn_inicio_m.setText("Inicio");
         btn_inicio_m.setFocusable(false);
         btn_inicio_m.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -119,16 +122,17 @@ public class GestionarCliente extends javax.swing.JFrame {
         });
         jToolBar1.add(btn_inicio_m);
 
-        btn_salir.setText("Salir");
-        btn_salir.setFocusable(false);
-        btn_salir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btn_salir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btn_salir.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/exit.png"))); // NOI18N
+        jButton1.setText("Salir");
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_salirActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        jToolBar1.add(btn_salir);
+        jToolBar1.add(jButton1);
 
         jp_registrar_cliente.setEnabled(false);
 
@@ -141,9 +145,9 @@ public class GestionarCliente extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txf_rut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txf_rutActionPerformed(evt);
             }
         });
 
@@ -201,12 +205,6 @@ public class GestionarCliente extends javax.swing.JFrame {
         jp_formulario_cliente.setLayout(jp_formulario_clienteLayout);
         jp_formulario_clienteLayout.setHorizontalGroup(
             jp_formulario_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_formulario_clienteLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_validar_datos)
-                .addGap(26, 26, 26)
-                .addComponent(btn_crear_cliente)
-                .addGap(106, 106, 106))
             .addGroup(jp_formulario_clienteLayout.createSequentialGroup()
                 .addGroup(jp_formulario_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_formulario_clienteLayout.createSequentialGroup()
@@ -228,7 +226,13 @@ public class GestionarCliente extends javax.swing.JFrame {
                                 .addComponent(txf_direccion, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txf_apMaterno, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addComponent(jp_numero_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_formulario_clienteLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_validar_datos)
+                .addGap(26, 26, 26)
+                .addComponent(btn_crear_cliente)
+                .addGap(108, 108, 108))
         );
         jp_formulario_clienteLayout.setVerticalGroup(
             jp_formulario_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,20 +261,19 @@ public class GestionarCliente extends javax.swing.JFrame {
                 .addGroup(jp_formulario_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txf_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jp_numero_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addGroup(jp_formulario_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_validar_datos)
                     .addComponent(btn_crear_cliente))
-                .addGap(31, 31, 31))
+                .addGap(47, 47, 47))
         );
 
         javax.swing.GroupLayout jp_registrar_clienteLayout = new javax.swing.GroupLayout(jp_registrar_cliente);
         jp_registrar_cliente.setLayout(jp_registrar_clienteLayout);
         jp_registrar_clienteLayout.setHorizontalGroup(
             jp_registrar_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jp_formulario_cliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jp_registrar_clienteLayout.createSequentialGroup()
                 .addGroup(jp_registrar_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_registrar_clienteLayout.createSequentialGroup()
@@ -278,10 +281,11 @@ public class GestionarCliente extends javax.swing.JFrame {
                         .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jp_registrar_clienteLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txf_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44)
                         .addComponent(btn_validar_rut)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jp_formulario_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jp_registrar_clienteLayout.setVerticalGroup(
             jp_registrar_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,16 +294,16 @@ public class GestionarCliente extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addGap(8, 8, 8)
                 .addGroup(jp_registrar_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txf_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_validar_rut))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jp_formulario_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jp_formulario_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txf_rut_datos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txf_rut_datosActionPerformed(evt);
             }
         });
 
@@ -324,79 +328,65 @@ public class GestionarCliente extends javax.swing.JFrame {
 
         jLabel15.setText("Telefono");
 
-        jLabel16.setText("jLabel16");
+        jLabel27.setText("Numero de Cuenta");
 
-        jLabel17.setText("jLabel17");
-
-        jLabel18.setText("jLabel18");
-
-        jLabel19.setText("jLabel19");
-
-        jLabel20.setText("jLabel20");
-
-        jLabel21.setText("jLabel21");
-
-        jLabel22.setText("Numero de Cuenta");
-
-        jLabel23.setText("jLabel23");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jp_formulario_datosLayout = new javax.swing.GroupLayout(jp_formulario_datos);
+        jp_formulario_datos.setLayout(jp_formulario_datosLayout);
+        jp_formulario_datosLayout.setHorizontalGroup(
+            jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_formulario_datosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel22))
+                    .addComponent(jLabel27))
                 .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lb_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_aPaterno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_aMaterno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_direccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_comuna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_telefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_numeroCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jp_formulario_datosLayout.setVerticalGroup(
+            jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_formulario_datosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel16))
+                    .addComponent(lb_nombre))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
+                    .addComponent(lb_aPaterno))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jLabel18))
+                    .addComponent(lb_aMaterno))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel19))
+                    .addComponent(lb_direccion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jLabel20))
+                    .addComponent(lb_comuna))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jLabel21))
+                    .addComponent(lb_telefono))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel23))
+                .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(lb_numeroCuenta))
                 .addContainerGap())
         );
 
@@ -405,14 +395,15 @@ public class GestionarCliente extends javax.swing.JFrame {
         jp_ver_datosLayout.setHorizontalGroup(
             jp_ver_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_ver_datosLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jp_ver_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jp_ver_datosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jp_formulario_datos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jp_ver_datosLayout.createSequentialGroup()
                         .addGroup(jp_ver_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
                             .addGroup(jp_ver_datosLayout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txf_rut_datos)
                                 .addGap(44, 44, 44)
                                 .addComponent(btn_validar_rut1)))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -424,10 +415,10 @@ public class GestionarCliente extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addGap(8, 8, 8)
                 .addGroup(jp_ver_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txf_rut_datos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_validar_rut1))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jp_formulario_datos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -445,19 +436,19 @@ public class GestionarCliente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jp_registrar_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(49, 49, 49))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jp_ver_datos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jp_ver_datos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jp_registrar_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jp_registrar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jp_registrar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jp_ver_datos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -467,12 +458,17 @@ public class GestionarCliente extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txf_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_rutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txf_rutActionPerformed
 
     private void btn_validar_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_rutActionPerformed
-        // TODO add your handling code here:
+        if(txf_rut.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Rellenar campo para validación porfavor", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            jp_formulario_cliente.setVisible(true);
+        }
     }//GEN-LAST:event_btn_validar_rutActionPerformed
 
     private void txf_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_nombreActionPerformed
@@ -486,19 +482,33 @@ public class GestionarCliente extends javax.swing.JFrame {
     private void btn_registrar_cliente_mActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrar_cliente_mActionPerformed
         jp_registrar_cliente.setVisible(true);
         jp_ver_datos.setVisible(false);
+        jp_formulario_cliente.setVisible(false);
     }//GEN-LAST:event_btn_registrar_cliente_mActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txf_rut_datosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_rut_datosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txf_rut_datosActionPerformed
 
     private void btn_validar_rut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_rut1ActionPerformed
-        // TODO add your handling code here:
+        if(txf_rut_datos.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Rellenar campo para validación porfavor", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            jp_formulario_datos.setVisible(true);
+            lb_nombre.setText(": hola");
+            lb_aPaterno.setText(": hola");
+            lb_aMaterno.setText(": hola");
+            lb_direccion.setText(": hola");
+            lb_comuna.setText(": hola");
+            lb_telefono.setText(": hola");
+            lb_numeroCuenta.setText(": hola");
+        }
     }//GEN-LAST:event_btn_validar_rut1ActionPerformed
 
     private void btn_ver_datos_mActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ver_datos_mActionPerformed
         jp_registrar_cliente.setVisible(false);
         jp_ver_datos.setVisible(true);
+        jp_formulario_datos.setVisible(false);
     }//GEN-LAST:event_btn_ver_datos_mActionPerformed
 
     private void btn_inicio_mActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicio_mActionPerformed
@@ -507,9 +517,9 @@ public class GestionarCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_inicio_mActionPerformed
 
-    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
-    }//GEN-LAST:event_btn_salirActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -550,11 +560,11 @@ public class GestionarCliente extends javax.swing.JFrame {
     private javax.swing.JButton btn_crear_cliente;
     private javax.swing.JButton btn_inicio_m;
     private javax.swing.JButton btn_registrar_cliente_m;
-    private javax.swing.JButton btn_salir;
     private javax.swing.JButton btn_validar_datos;
     private javax.swing.JButton btn_validar_rut;
     private javax.swing.JButton btn_validar_rut1;
     private javax.swing.JButton btn_ver_datos_m;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -562,15 +572,8 @@ public class GestionarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -581,20 +584,27 @@ public class GestionarCliente extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JPanel jp_formulario_cliente;
+    private javax.swing.JPanel jp_formulario_datos;
     private javax.swing.JPanel jp_numero_cuenta;
     private javax.swing.JPanel jp_registrar_cliente;
     private javax.swing.JPanel jp_ver_datos;
+    private javax.swing.JLabel lb_aMaterno;
+    private javax.swing.JLabel lb_aPaterno;
+    private javax.swing.JLabel lb_comuna;
+    private javax.swing.JLabel lb_direccion;
+    private javax.swing.JLabel lb_nombre;
+    private javax.swing.JLabel lb_numeroCuenta;
+    private javax.swing.JLabel lb_telefono;
     private javax.swing.JTextField txf_apMaterno;
     private javax.swing.JTextField txf_apPaterno;
     private javax.swing.JTextField txf_comuna;
     private javax.swing.JTextField txf_direccion;
     private javax.swing.JTextField txf_nombre;
     private javax.swing.JTextField txf_numeroCuenta;
+    private javax.swing.JTextField txf_rut;
+    private javax.swing.JTextField txf_rut_datos;
     private javax.swing.JTextField txf_telefono;
     // End of variables declaration//GEN-END:variables
 }
