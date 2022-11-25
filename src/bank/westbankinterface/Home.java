@@ -25,18 +25,22 @@ public class Home extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 523));
 
         lb_bienvenida.setAlignment(java.awt.Label.CENTER);
-        lb_bienvenida.setFont(new java.awt.Font("Dialog", 0, 48)); // NOI18N
+        lb_bienvenida.setFont(new java.awt.Font("Stencil", 1, 48)); // NOI18N
         lb_bienvenida.setName(""); // NOI18N
         lb_bienvenida.setText("Bienvenido");
 
+        bar_menu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         bar_menu.setRollover(true);
 
         btn_gestionar_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/gestionar_Cliente.png"))); // NOI18N
-        btn_gestionar_cliente.setText("Gestionar Cliente");
+        btn_gestionar_cliente.setText("Gestionar Cliente   ");
+        btn_gestionar_cliente.setToolTipText("");
         btn_gestionar_cliente.setAlignmentY(0.0F);
         btn_gestionar_cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_gestionar_cliente.setRequestFocusEnabled(false);
         btn_gestionar_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_gestionar_clienteActionPerformed(evt);
@@ -45,7 +49,7 @@ public class Home extends javax.swing.JFrame {
         bar_menu.add(btn_gestionar_cliente);
 
         btn_gestionar_cuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/gestionarcuenta.png"))); // NOI18N
-        btn_gestionar_cuenta.setText("Gestionar Cuenta");
+        btn_gestionar_cuenta.setText("Gestionar Cuenta   ");
         btn_gestionar_cuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_gestionar_cuentaActionPerformed(evt);
@@ -54,7 +58,7 @@ public class Home extends javax.swing.JFrame {
         bar_menu.add(btn_gestionar_cuenta);
 
         btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/exit.png"))); // NOI18N
-        btn_salir.setText("Salir");
+        btn_salir.setText("Salir   ");
         btn_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salirActionPerformed(evt);
@@ -65,47 +69,44 @@ public class Home extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/bank.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 48)); // NOI18N
-        jLabel1.setText("West");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/title_a.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 48)); // NOI18N
-        jLabel3.setText("Bank");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/title_b.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bar_menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 862, Short.MAX_VALUE)
+            .addComponent(bar_menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jLabel2)
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(274, 274, 274)
-                        .addComponent(lb_bienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(101, 101, 101)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lb_bienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(bar_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(lb_bienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jLabel1))
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel2)))
-                .addContainerGap(110, Short.MAX_VALUE))
+                        .addGap(48, 48, 48)
+                        .addComponent(lb_bienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         pack();
