@@ -38,7 +38,6 @@ public class Home extends javax.swing.JFrame {
         btn_gestionar_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/gestionar_Cliente.png"))); // NOI18N
         btn_gestionar_cliente.setText("Gestionar Cliente   ");
         btn_gestionar_cliente.setToolTipText("");
-        btn_gestionar_cliente.setAlignmentY(0.0F);
         btn_gestionar_cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_gestionar_cliente.setRequestFocusEnabled(false);
         btn_gestionar_cliente.addActionListener(new java.awt.event.ActionListener() {
@@ -94,13 +93,13 @@ public class Home extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(bar_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bar_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
+                        .addGap(75, 75, 75)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
+                        .addGap(63, 63, 63)
                         .addComponent(lb_bienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
