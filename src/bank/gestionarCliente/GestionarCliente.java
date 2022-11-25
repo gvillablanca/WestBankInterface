@@ -90,6 +90,7 @@ public class GestionarCliente extends javax.swing.JFrame {
 
         btn_registrar_cliente_m.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/add_client.png"))); // NOI18N
         btn_registrar_cliente_m.setText("Registrar Cliente");
+        btn_registrar_cliente_m.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_registrar_cliente_m.setFocusable(false);
         btn_registrar_cliente_m.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_registrar_cliente_m.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -102,6 +103,7 @@ public class GestionarCliente extends javax.swing.JFrame {
 
         btn_ver_datos_m.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/client_data.png"))); // NOI18N
         btn_ver_datos_m.setText("Ver datos cliente");
+        btn_ver_datos_m.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_ver_datos_m.setFocusable(false);
         btn_ver_datos_m.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_ver_datos_m.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -114,6 +116,7 @@ public class GestionarCliente extends javax.swing.JFrame {
 
         btn_inicio_m.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/home.png"))); // NOI18N
         btn_inicio_m.setText("Volver Inicio");
+        btn_inicio_m.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_inicio_m.setFocusable(false);
         btn_inicio_m.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_inicio_m.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -126,6 +129,7 @@ public class GestionarCliente extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/exit.png"))); // NOI18N
         jButton1.setText("Salir");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -141,12 +145,14 @@ public class GestionarCliente extends javax.swing.JFrame {
         jLabel9.setText("Ingrese rut de usuario sin punto ni guiones");
 
         btn_validar_rut.setText("Validar rut");
+        btn_validar_rut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_validar_rut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_validar_rutActionPerformed(evt);
             }
         });
 
+        txf_rut.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txf_rut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txf_rutActionPerformed(evt);
@@ -155,6 +161,17 @@ public class GestionarCliente extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre");
 
+        txf_telefono.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        txf_comuna.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        txf_direccion.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        txf_apMaterno.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        txf_apPaterno.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        txf_nombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txf_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txf_nombreActionPerformed(evt);
@@ -172,6 +189,7 @@ public class GestionarCliente extends javax.swing.JFrame {
         jLabel6.setText("Telefono");
 
         btn_crear_cliente.setText("Crear Cliente");
+        btn_crear_cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_crear_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_crear_clienteActionPerformed(evt);
@@ -179,8 +197,11 @@ public class GestionarCliente extends javax.swing.JFrame {
         });
 
         btn_validar_datos.setText("Validar datos");
+        btn_validar_datos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel7.setText("Numero de Cuenta");
+
+        txf_numeroCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         javax.swing.GroupLayout jp_numero_cuentaLayout = new javax.swing.GroupLayout(jp_numero_cuenta);
         jp_numero_cuenta.setLayout(jp_numero_cuentaLayout);
@@ -310,6 +331,7 @@ public class GestionarCliente extends javax.swing.JFrame {
         });
 
         btn_validar_rut1.setText("Validar rut");
+        btn_validar_rut1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_validar_rut1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_validar_rut1ActionPerformed(evt);
