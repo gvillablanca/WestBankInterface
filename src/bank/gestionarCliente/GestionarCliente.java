@@ -5,6 +5,7 @@
  */
 package bank.gestionarCliente;
 
+import bank.functions.funcionesBanco;
 import bank.westbankinterface.Home;
 import javax.swing.JOptionPane;
 
@@ -13,10 +14,7 @@ import javax.swing.JOptionPane;
  * @author Reizewr
  */
 public class GestionarCliente extends javax.swing.JFrame {
-
-    /**
-     * Creates new form GestionarCliente
-     */
+    String rut = new String();
     public GestionarCliente() {
         initComponents();
         setLocationRelativeTo(null);
@@ -79,6 +77,8 @@ public class GestionarCliente extends javax.swing.JFrame {
         lb_telefono = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         lb_numeroCuenta = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        lb_rut = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 523));
@@ -356,6 +356,8 @@ public class GestionarCliente extends javax.swing.JFrame {
 
         jLabel27.setText("Numero de Cuenta");
 
+        jLabel16.setText("Rut");
+
         javax.swing.GroupLayout jp_formulario_datosLayout = new javax.swing.GroupLayout(jp_formulario_datos);
         jp_formulario_datos.setLayout(jp_formulario_datosLayout);
         jp_formulario_datosLayout.setHorizontalGroup(
@@ -370,7 +372,8 @@ public class GestionarCliente extends javax.swing.JFrame {
                         .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel27))
+                    .addComponent(jLabel27)
+                    .addComponent(jLabel16))
                 .addGap(33, 33, 33)
                 .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lb_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -379,13 +382,18 @@ public class GestionarCliente extends javax.swing.JFrame {
                     .addComponent(lb_direccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lb_comuna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lb_telefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lb_numeroCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
+                    .addComponent(lb_numeroCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_rut, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_formulario_datosLayout.setVerticalGroup(
             jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_formulario_datosLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(lb_rut))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(lb_nombre))
@@ -409,7 +417,7 @@ public class GestionarCliente extends javax.swing.JFrame {
                 .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(lb_telefono))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_formulario_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
                     .addComponent(lb_numeroCuenta))
@@ -486,7 +494,18 @@ public class GestionarCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ingrese rut para validación", "Advertencia", JOptionPane.OK_OPTION);
         }
         else{
-            jp_formulario_cliente.setVisible(true);
+            if(funcionesBanco.isNumeric(txf_rut.getText())){
+                if(txf_rut.getText().length() < 8 || txf_rut.getText().length() > 9){
+                    JOptionPane.showMessageDialog(null, "Ingresar rut valido sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
+                }
+                else{
+                    rut = funcionesBanco.checkRut(txf_rut.getText());
+                    jp_formulario_cliente.setVisible(true);
+                }   
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Ingresar valor numerico, recuerde que el rut debe ir sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
+            }
         }
     }//GEN-LAST:event_btn_validar_rutActionPerformed
 
@@ -520,6 +539,7 @@ public class GestionarCliente extends javax.swing.JFrame {
         }
         else{
             jp_formulario_datos.setVisible(true);
+            lb_rut.setText(rut);
             lb_nombre.setText(": hola");
             lb_aPaterno.setText(": hola");
             lb_aMaterno.setText(": hola");
@@ -608,6 +628,7 @@ public class GestionarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
@@ -629,6 +650,7 @@ public class GestionarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel lb_direccion;
     private javax.swing.JLabel lb_nombre;
     private javax.swing.JLabel lb_numeroCuenta;
+    private javax.swing.JLabel lb_rut;
     private javax.swing.JLabel lb_telefono;
     private javax.swing.JTextField txf_apMaterno;
     private javax.swing.JTextField txf_apPaterno;
