@@ -64,7 +64,6 @@ public class gestionarCuenta extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(767, 520));
 
         jToolBar1.setRollover(true);
         jToolBar1.setPreferredSize(new java.awt.Dimension(234, 84));
