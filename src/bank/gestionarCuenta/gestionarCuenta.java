@@ -36,30 +36,51 @@ public class gestionarCuenta extends javax.swing.JFrame {
         btn_inicio = new javax.swing.JButton();
         btn_salir = new javax.swing.JButton();
         jp_depositar = new javax.swing.JPanel();
-        lb_titulo_depositar = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         lb_ingreso_rut = new javax.swing.JLabel();
         txt_ingreso_rut = new javax.swing.JTextField();
+        btn_validar_rut = new javax.swing.JButton();
+        jp_datos_deposito = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lb_numeroCuenta = new javax.swing.JLabel();
+        lb_tipoCuenta = new javax.swing.JLabel();
+        lb_saldo_cuenta = new javax.swing.JLabel();
+        jp_datos_monto_dep = new javax.swing.JPanel();
         lb_saldo_deposito = new javax.swing.JLabel();
         txt_saldo_deposito = new javax.swing.JTextField();
         btn_hacer_deposito = new javax.swing.JButton();
-        btn_validar_rut = new javax.swing.JButton();
         jp_girar = new javax.swing.JPanel();
-        lb_titulo_girar = new javax.swing.JLabel();
-        lb_ingrese_rut1 = new javax.swing.JLabel();
-        txt_ingreso_rut1 = new javax.swing.JTextField();
+        jp_datos_cliente_giro = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        lb_numero_cuenta_giro = new javax.swing.JLabel();
+        lb_tipoCuenta_giro = new javax.swing.JLabel();
+        lb_saldoDisponible_giro = new javax.swing.JLabel();
+        jp_saldo_giro = new javax.swing.JPanel();
         lb_saldo_giro = new javax.swing.JLabel();
         txt_saldo_giro = new javax.swing.JTextField();
         btn_hacer_giro = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        lb_ingrese_rut1 = new javax.swing.JLabel();
+        txt_ingreso_rut_giro = new javax.swing.JTextField();
         btn_validar_rut1 = new javax.swing.JButton();
         jp_transferencia = new javax.swing.JPanel();
-        lb_transferencia = new javax.swing.JLabel();
+        jp_datos_transferencia = new javax.swing.JPanel();
         lb_num_cuenta_origen = new javax.swing.JLabel();
-        txt_num_cuenta_origen = new javax.swing.JTextField();
         lb_num_cuenta_destino = new javax.swing.JLabel();
+        txt_num_cuenta_origen = new javax.swing.JTextField();
         txt_num_cuenta_destino = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jp_transferencia_monto = new javax.swing.JPanel();
         lb_monto_transferencia = new javax.swing.JLabel();
         txt_monto_transferencia = new javax.swing.JTextField();
         btn_hacer_transferencia = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -130,16 +151,74 @@ public class gestionarCuenta extends javax.swing.JFrame {
         });
         jToolBar1.add(btn_salir);
 
-        lb_titulo_depositar.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
-        lb_titulo_depositar.setText("Depositar");
-
-        lb_ingreso_rut.setText("Ingrese Rut:");
+        lb_ingreso_rut.setText("Ingrese rut de usuario sin punto ni guiones");
 
         txt_ingreso_rut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_ingreso_rutActionPerformed(evt);
             }
         });
+
+        btn_validar_rut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/search.png"))); // NOI18N
+        btn_validar_rut.setText("Validar RUT");
+        btn_validar_rut.setPreferredSize(new java.awt.Dimension(122, 32));
+        btn_validar_rut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_validar_rutActionPerformed(evt);
+            }
+        });
+
+        jp_datos_deposito.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel1.setText("Numero cuenta");
+
+        jLabel2.setText("Tipo de cuenta");
+
+        jLabel3.setText("Saldo disponible");
+
+        jLabel4.setText("Datos Cliente");
+
+        javax.swing.GroupLayout jp_datos_depositoLayout = new javax.swing.GroupLayout(jp_datos_deposito);
+        jp_datos_deposito.setLayout(jp_datos_depositoLayout);
+        jp_datos_depositoLayout.setHorizontalGroup(
+            jp_datos_depositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_datos_depositoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jp_datos_depositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(jp_datos_depositoLayout.createSequentialGroup()
+                        .addGroup(jp_datos_depositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(27, 27, 27)
+                        .addGroup(jp_datos_depositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lb_numeroCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lb_tipoCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lb_saldo_cuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))))
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+        jp_datos_depositoLayout.setVerticalGroup(
+            jp_datos_depositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_datos_depositoLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(jp_datos_depositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lb_numeroCuenta))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jp_datos_depositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lb_tipoCuenta))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jp_datos_depositoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(lb_saldo_cuenta))
+                .addGap(31, 31, 31))
+        );
+
+        jp_datos_monto_dep.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lb_saldo_deposito.setText("Saldo a Depositar:");
 
@@ -149,7 +228,8 @@ public class gestionarCuenta extends javax.swing.JFrame {
             }
         });
 
-        btn_hacer_deposito.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btn_hacer_deposito.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        btn_hacer_deposito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/insert_cash.png"))); // NOI18N
         btn_hacer_deposito.setText("Hacer Depósito");
         btn_hacer_deposito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,68 +237,136 @@ public class gestionarCuenta extends javax.swing.JFrame {
             }
         });
 
-        btn_validar_rut.setText("Validar RUT");
-        btn_validar_rut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_validar_rutActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jp_datos_monto_depLayout = new javax.swing.GroupLayout(jp_datos_monto_dep);
+        jp_datos_monto_dep.setLayout(jp_datos_monto_depLayout);
+        jp_datos_monto_depLayout.setHorizontalGroup(
+            jp_datos_monto_depLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_datos_monto_depLayout.createSequentialGroup()
+                .addGroup(jp_datos_monto_depLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_datos_monto_depLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lb_saldo_deposito))
+                    .addGroup(jp_datos_monto_depLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txt_saldo_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(199, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_datos_monto_depLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_hacer_deposito)
+                .addGap(24, 24, 24))
+        );
+        jp_datos_monto_depLayout.setVerticalGroup(
+            jp_datos_monto_depLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_datos_monto_depLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(lb_saldo_deposito)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_saldo_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_hacer_deposito)
+                .addGap(21, 21, 21))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jp_datos_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jp_datos_monto_dep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lb_ingreso_rut)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txt_ingreso_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_validar_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lb_ingreso_rut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_ingreso_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_validar_rut, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jp_datos_monto_dep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jp_datos_deposito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jp_depositarLayout = new javax.swing.GroupLayout(jp_depositar);
         jp_depositar.setLayout(jp_depositarLayout);
         jp_depositarLayout.setHorizontalGroup(
             jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_depositarLayout.createSequentialGroup()
-                .addGroup(jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_depositarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lb_titulo_depositar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp_depositarLayout.createSequentialGroup()
-                        .addGap(227, 227, 227)
-                        .addGroup(jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn_hacer_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jp_depositarLayout.createSequentialGroup()
-                                    .addComponent(lb_ingreso_rut)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txt_ingreso_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jp_depositarLayout.createSequentialGroup()
-                                    .addComponent(lb_saldo_deposito)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txt_saldo_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(29, 29, 29)
-                        .addComponent(btn_validar_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
         jp_depositarLayout.setVerticalGroup(
             jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_depositarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lb_titulo_depositar)
-                .addGap(54, 54, 54)
-                .addGroup(jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_ingreso_rut)
-                    .addComponent(txt_ingreso_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_validar_rut))
-                .addGap(18, 18, 18)
-                .addGroup(jp_depositarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_saldo_deposito)
-                    .addComponent(txt_saldo_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                .addComponent(btn_hacer_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+            .addGroup(jp_depositarLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        lb_titulo_girar.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
-        lb_titulo_girar.setText("Girar");
+        jp_datos_cliente_giro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lb_ingrese_rut1.setText("Ingrese Rut:");
+        jLabel5.setText("Datos Cliente");
 
-        txt_ingreso_rut1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_ingreso_rut1ActionPerformed(evt);
-            }
-        });
+        jLabel6.setText("Numero cuenta");
+
+        jLabel7.setText("Tipo de cuenta");
+
+        jLabel8.setText("Saldo disponible");
+
+        javax.swing.GroupLayout jp_datos_cliente_giroLayout = new javax.swing.GroupLayout(jp_datos_cliente_giro);
+        jp_datos_cliente_giro.setLayout(jp_datos_cliente_giroLayout);
+        jp_datos_cliente_giroLayout.setHorizontalGroup(
+            jp_datos_cliente_giroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_datos_cliente_giroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jp_datos_cliente_giroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_datos_cliente_giroLayout.createSequentialGroup()
+                        .addGroup(jp_datos_cliente_giroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addGap(50, 50, 50)
+                        .addGroup(jp_datos_cliente_giroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lb_numero_cuenta_giro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lb_tipoCuenta_giro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lb_saldoDisponible_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel5))
+                .addContainerGap(78, Short.MAX_VALUE))
+        );
+        jp_datos_cliente_giroLayout.setVerticalGroup(
+            jp_datos_cliente_giroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_datos_cliente_giroLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel5)
+                .addGap(27, 27, 27)
+                .addGroup(jp_datos_cliente_giroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(lb_numero_cuenta_giro))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jp_datos_cliente_giroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(lb_tipoCuenta_giro))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jp_datos_cliente_giroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(lb_saldoDisponible_giro))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jp_saldo_giro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lb_saldo_giro.setText("Saldo a Girar:");
 
@@ -228,7 +376,8 @@ public class gestionarCuenta extends javax.swing.JFrame {
             }
         });
 
-        btn_hacer_giro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btn_hacer_giro.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        btn_hacer_giro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/girar.png"))); // NOI18N
         btn_hacer_giro.setText("Hacer Giro");
         btn_hacer_giro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,64 +385,109 @@ public class gestionarCuenta extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jp_saldo_giroLayout = new javax.swing.GroupLayout(jp_saldo_giro);
+        jp_saldo_giro.setLayout(jp_saldo_giroLayout);
+        jp_saldo_giroLayout.setHorizontalGroup(
+            jp_saldo_giroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_saldo_giroLayout.createSequentialGroup()
+                .addContainerGap(200, Short.MAX_VALUE)
+                .addComponent(btn_hacer_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+            .addGroup(jp_saldo_giroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jp_saldo_giroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lb_saldo_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_saldo_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_saldo_giroLayout.setVerticalGroup(
+            jp_saldo_giroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_saldo_giroLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(lb_saldo_giro)
+                .addGap(18, 18, 18)
+                .addComponent(txt_saldo_giro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(btn_hacer_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        lb_ingrese_rut1.setText("Ingrese rut de usuario sin punto ni guiones");
+
+        txt_ingreso_rut_giro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_ingreso_rut_giroActionPerformed(evt);
+            }
+        });
+
+        btn_validar_rut1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/search.png"))); // NOI18N
         btn_validar_rut1.setText("Validar RUT");
+        btn_validar_rut1.setPreferredSize(new java.awt.Dimension(122, 36));
         btn_validar_rut1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_validar_rut1ActionPerformed(evt);
             }
         });
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txt_ingreso_rut_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_validar_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lb_ingrese_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lb_ingrese_rut1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_ingreso_rut_giro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_validar_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jp_girarLayout = new javax.swing.GroupLayout(jp_girar);
         jp_girar.setLayout(jp_girarLayout);
         jp_girarLayout.setHorizontalGroup(
             jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_girarLayout.createSequentialGroup()
-                .addGroup(jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_girarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lb_titulo_girar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp_girarLayout.createSequentialGroup()
-                        .addGap(203, 203, 203)
-                        .addGroup(jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn_hacer_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jp_girarLayout.createSequentialGroup()
-                                    .addComponent(lb_saldo_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txt_saldo_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jp_girarLayout.createSequentialGroup()
-                                    .addComponent(lb_ingrese_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(32, 32, 32)
-                                    .addComponent(txt_ingreso_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(46, 46, 46)
-                        .addComponent(btn_validar_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(129, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_girarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jp_datos_cliente_giro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jp_saldo_giro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_girarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_girarLayout.setVerticalGroup(
             jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_girarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lb_titulo_girar)
-                .addGap(54, 54, 54)
-                .addGroup(jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_ingrese_rut1)
-                    .addComponent(txt_ingreso_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_validar_rut1))
-                .addGap(18, 18, 18)
-                .addGroup(jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_saldo_giro)
-                    .addComponent(txt_saldo_giro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(71, 71, 71)
-                .addComponent(btn_hacer_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_girarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jp_saldo_giro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jp_datos_cliente_giro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jp_transferencia.setPreferredSize(new java.awt.Dimension(747, 294));
 
-        lb_transferencia.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
-        lb_transferencia.setText("Transferir");
+        jp_datos_transferencia.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lb_num_cuenta_origen.setText("Ingrese Número Cuenta Origen");
+
+        lb_num_cuenta_destino.setText("Ingrese Número Cuenta Destino");
 
         txt_num_cuenta_origen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,13 +495,47 @@ public class gestionarCuenta extends javax.swing.JFrame {
             }
         });
 
-        lb_num_cuenta_destino.setText("Ingrese Número Cuenta Destino");
-
         txt_num_cuenta_destino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_num_cuenta_destinoActionPerformed(evt);
             }
         });
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/finalizar.png"))); // NOI18N
+        jButton1.setText("Validar");
+
+        javax.swing.GroupLayout jp_datos_transferenciaLayout = new javax.swing.GroupLayout(jp_datos_transferencia);
+        jp_datos_transferencia.setLayout(jp_datos_transferenciaLayout);
+        jp_datos_transferenciaLayout.setHorizontalGroup(
+            jp_datos_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_datos_transferenciaLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jp_datos_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lb_num_cuenta_origen, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lb_num_cuenta_destino, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jp_datos_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txt_num_cuenta_destino, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE))
+                    .addComponent(txt_num_cuenta_origen, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(99, Short.MAX_VALUE))
+        );
+        jp_datos_transferenciaLayout.setVerticalGroup(
+            jp_datos_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_datos_transferenciaLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lb_num_cuenta_origen)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_num_cuenta_origen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(lb_num_cuenta_destino)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_num_cuenta_destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jButton1)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+
+        jp_transferencia_monto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lb_monto_transferencia.setText("Ingrese Monto a Transferir");
 
@@ -317,8 +545,49 @@ public class gestionarCuenta extends javax.swing.JFrame {
             }
         });
 
+        btn_hacer_transferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/transfer.png"))); // NOI18N
         btn_hacer_transferencia.setText("Transferir");
         btn_hacer_transferencia.setPreferredSize(new java.awt.Dimension(89, 23));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/novo.png"))); // NOI18N
+        jButton2.setText("Nueva Transferencia");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jp_transferencia_montoLayout = new javax.swing.GroupLayout(jp_transferencia_monto);
+        jp_transferencia_monto.setLayout(jp_transferencia_montoLayout);
+        jp_transferencia_montoLayout.setHorizontalGroup(
+            jp_transferencia_montoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_transferencia_montoLayout.createSequentialGroup()
+                .addGroup(jp_transferencia_montoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_transferencia_montoLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_hacer_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_transferencia_montoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jp_transferencia_montoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_monto_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lb_monto_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+        jp_transferencia_montoLayout.setVerticalGroup(
+            jp_transferencia_montoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_transferencia_montoLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(lb_monto_transferencia)
+                .addGap(18, 18, 18)
+                .addComponent(txt_monto_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jp_transferencia_montoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_hacer_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
+        );
 
         javax.swing.GroupLayout jp_transferenciaLayout = new javax.swing.GroupLayout(jp_transferencia);
         jp_transferencia.setLayout(jp_transferenciaLayout);
@@ -326,46 +595,19 @@ public class gestionarCuenta extends javax.swing.JFrame {
             jp_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_transferenciaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lb_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jp_datos_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jp_transferencia_monto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jp_transferenciaLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addGroup(jp_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jp_transferenciaLayout.createSequentialGroup()
-                        .addComponent(lb_num_cuenta_destino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_num_cuenta_destino, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp_transferenciaLayout.createSequentialGroup()
-                        .addComponent(lb_num_cuenta_origen, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(txt_num_cuenta_origen, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_transferenciaLayout.createSequentialGroup()
-                        .addComponent(lb_monto_transferencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_monto_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_hacer_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
         );
         jp_transferenciaLayout.setVerticalGroup(
             jp_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_transferenciaLayout.createSequentialGroup()
+            .addGroup(jp_transferenciaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lb_transferencia)
-                .addGap(55, 55, 55)
-                .addGroup(jp_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_num_cuenta_origen)
-                    .addComponent(txt_num_cuenta_origen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jp_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_num_cuenta_destino)
-                    .addComponent(txt_num_cuenta_destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_hacer_transferencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(jp_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_monto_transferencia)
-                    .addComponent(txt_monto_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGroup(jp_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jp_transferencia_monto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jp_datos_transferencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -384,10 +626,11 @@ public class gestionarCuenta extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jp_depositar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jp_girar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jp_transferencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jp_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 757, Short.MAX_VALUE)
+                        .addComponent(jp_depositar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jp_girar, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -396,9 +639,9 @@ public class gestionarCuenta extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jp_depositar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jp_girar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jp_girar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jp_transferencia, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                .addComponent(jp_transferencia, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -409,7 +652,8 @@ public class gestionarCuenta extends javax.swing.JFrame {
         jp_depositar.setVisible(true);
         jp_girar.setVisible(false);
         jp_transferencia.setVisible(false);
-        txt_saldo_deposito.setEnabled(false);
+        jp_datos_deposito.setVisible(false);
+        jp_datos_monto_dep.setVisible(false);
     }//GEN-LAST:event_btn_depositarActionPerformed
 
     private void txt_ingreso_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ingreso_rutActionPerformed
@@ -440,7 +684,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_saldo_depositoActionPerformed
 
     private void btn_hacer_depositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hacer_depositoActionPerformed
-        monto = txt_saldo_deposito.getText();
+            monto = txt_saldo_deposito.getText();
             int montoInt = Integer.parseInt(monto);
 
             if(monto.isEmpty()){
@@ -450,27 +694,34 @@ public class gestionarCuenta extends javax.swing.JFrame {
                 for(int i = 0;i<=clienteBanco.size();i++){
                     if(clienteBanco.get(i).getRut().equals(rut)){
                         if(funcionesBanco.isNumeric(monto)){
-                            if(montoInt < 0 || montoInt == 0){
+                            if(montoInt < 0 || montoInt == 0 || monto.isEmpty()){
                                 JOptionPane.showMessageDialog(null, "Ingresar monto superior a 0", "Advertencia", JOptionPane.OK_OPTION);
                             }else{
                                 int nsaldo = clienteBanco.get(i).getCuenta().getSaldo() + Integer.parseInt(monto);
                                 clienteBanco.get(i).getCuenta().setSaldo(nsaldo);
+                                JOptionPane.showMessageDialog(null, "Deposito realizado con exito, su nuevo saldo es: "+ nsaldo, "Completado", JOptionPane.INFORMATION_MESSAGE);
+                                lb_numeroCuenta.setText("");
+                                lb_tipoCuenta.setText("");
+                                lb_saldo_cuenta.setText("");
+                                jp_datos_deposito.setVisible(false);
+                                jp_datos_monto_dep.setVisible(false);
+                                txt_ingreso_rut.setEnabled(true);
+                                txt_ingreso_rut.setText("");
                                 break;
                             }
                         }
                         else{
                             JOptionPane.showMessageDialog(null, "Ingresar monto numerico", "Advertencia", JOptionPane.OK_OPTION);
                             break;
-                            //limpia todo como si ingresarass de nuevo
                         }
                     }
                 }
             }
     }//GEN-LAST:event_btn_hacer_depositoActionPerformed
 
-    private void txt_ingreso_rut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ingreso_rut1ActionPerformed
+    private void txt_ingreso_rut_giroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ingreso_rut_giroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_ingreso_rut1ActionPerformed
+    }//GEN-LAST:event_txt_ingreso_rut_giroActionPerformed
 
     private void txt_saldo_giroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_saldo_giroActionPerformed
         // TODO add your handling code here:
@@ -498,6 +749,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
                         else{
                             JOptionPane.showMessageDialog(null, "Ingresar monto numerico", "Advertencia", JOptionPane.OK_OPTION);
                             break;
+                            //aqui
                             //limpia todo como si ingresarass de nuevo
                         }
                     }
@@ -509,7 +761,8 @@ public class gestionarCuenta extends javax.swing.JFrame {
         jp_depositar.setVisible(false);
         jp_girar.setVisible(true);
         jp_transferencia.setVisible(false);
-        txt_saldo_giro.setEnabled(false);
+        jp_datos_cliente_giro.setVisible(false);
+        jp_saldo_giro.setVisible(false);
     }//GEN-LAST:event_btn_girarActionPerformed
 
     private void txt_num_cuenta_origenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_num_cuenta_origenActionPerformed
@@ -524,7 +777,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
         jp_depositar.setVisible(false);
         jp_girar.setVisible(false);
         jp_transferencia.setVisible(true);
-        txt_monto_transferencia.setEnabled(false);
+        jp_transferencia_monto.setVisible(false);
     }//GEN-LAST:event_btn_transferirActionPerformed
 
     private void btn_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicioActionPerformed
@@ -550,22 +803,27 @@ public class gestionarCuenta extends javax.swing.JFrame {
                 }
                 else{
                     rut = funcionesBanco.checkRut(txt_ingreso_rut.getText());
-					for(int i = 0;i<=clienteBanco.size();i++){
-						if(clienteBanco.size()>0){
-							if(!clienteBanco.get(i).getRut().equals(rut)||clienteBanco.size()==0){
-								JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
-								break;
-							}
-							else{
-								txt_saldo_deposito.setEnabled(true);
-								txt_ingreso_rut.setEnabled(false);
-							}
-						}
-						else{
-							JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
-							break;
-						}
-					}			                    
+                    for(int i = 0;i<=clienteBanco.size();i++){
+			if(clienteBanco.size()>0){
+                            if(!clienteBanco.get(i).getRut().equals(rut)||clienteBanco.size()==0){
+				JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
+				break;
+                            }
+                            else{
+                                lb_numeroCuenta.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getNumeroCuenta()));
+                                lb_tipoCuenta.setText(": "+clienteBanco.get(i).getCuenta().getTipoCuenta());
+                                lb_saldo_cuenta.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getSaldo()));
+                                jp_datos_deposito.setVisible(true);
+                                jp_datos_monto_dep.setVisible(true);
+                                txt_ingreso_rut.setEnabled(false);
+                            }
+			}
+			else{
+                            JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
+                            txt_ingreso_rut.setEnabled(true);
+                            break;
+			}
+                    }			                    
                 }   
             }
             else{
@@ -578,32 +836,37 @@ public class gestionarCuenta extends javax.swing.JFrame {
     private void btn_validar_rut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_rut1ActionPerformed
         if(txt_ingreso_rut.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese rut para validacion", "Advertencia", JOptionPane.OK_OPTION);
-            txt_ingreso_rut.setEnabled(true);
+            txt_ingreso_rut_giro.setEnabled(true);
         }
         else{
             if(funcionesBanco.isNumeric(txt_ingreso_rut.getText())){
                 if(txt_ingreso_rut.getText().length() < 8 || txt_ingreso_rut.getText().length() > 9){
                     JOptionPane.showMessageDialog(null, "Ingresar rut valido sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
-                    txt_ingreso_rut.setEnabled(true);
+                    txt_ingreso_rut_giro.setEnabled(true);
                 }
                 else{
                     rut = funcionesBanco.checkRut(txt_ingreso_rut.getText());
-					for(int i = 0;i<=clienteBanco.size();i++){
-						if(clienteBanco.size()>0){
-							if(!clienteBanco.get(i).getRut().equals(rut)||clienteBanco.size()==0){
-								JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
-								break;
-							}
-							else{
-								txt_saldo_deposito.setEnabled(true);
-								txt_ingreso_rut.setEnabled(false);
-							}
-						}
-						else{
-							JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
-							break;
-						}
-					}			                    
+                    for(int i = 0;i<=clienteBanco.size();i++){
+			if(clienteBanco.size()>0){
+                            if(!clienteBanco.get(i).getRut().equals(rut)||clienteBanco.size()==0){
+				JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
+				break;
+                            }
+                            else{
+                                lb_numero_cuenta_giro.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getNumeroCuenta()));
+                                lb_tipoCuenta_giro.setText(": "+clienteBanco.get(i).getCuenta().getTipoCuenta());
+                                lb_saldo_giro.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getSaldo()));
+                                jp_datos_cliente_giro.setVisible(true);
+                                jp_saldo_giro.setVisible(true);
+                                txt_ingreso_rut_giro.setEnabled(false);
+                            }
+			}
+			else{
+                            JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
+                            txt_ingreso_rut_giro.setEnabled(true);
+                            break;
+			}
+                    }			                    
                 }   
             }
             else{
@@ -616,6 +879,10 @@ public class gestionarCuenta extends javax.swing.JFrame {
     private void txt_monto_transferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_monto_transferenciaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_monto_transferenciaActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -663,25 +930,46 @@ public class gestionarCuenta extends javax.swing.JFrame {
     private javax.swing.JButton btn_transferir;
     private javax.swing.JButton btn_validar_rut;
     private javax.swing.JButton btn_validar_rut1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JPanel jp_datos_cliente_giro;
+    private javax.swing.JPanel jp_datos_deposito;
+    private javax.swing.JPanel jp_datos_monto_dep;
+    private javax.swing.JPanel jp_datos_transferencia;
     private javax.swing.JPanel jp_depositar;
     private javax.swing.JPanel jp_girar;
+    private javax.swing.JPanel jp_saldo_giro;
     private javax.swing.JPanel jp_transferencia;
+    private javax.swing.JPanel jp_transferencia_monto;
     private javax.swing.JLabel lb_ingrese_rut1;
     private javax.swing.JLabel lb_ingreso_rut;
     private javax.swing.JLabel lb_monto_transferencia;
     private javax.swing.JLabel lb_num_cuenta_destino;
     private javax.swing.JLabel lb_num_cuenta_origen;
+    private javax.swing.JLabel lb_numeroCuenta;
+    private javax.swing.JLabel lb_numero_cuenta_giro;
+    private javax.swing.JLabel lb_saldoDisponible_giro;
+    private javax.swing.JLabel lb_saldo_cuenta;
     private javax.swing.JLabel lb_saldo_deposito;
     private javax.swing.JLabel lb_saldo_giro;
-    private javax.swing.JLabel lb_titulo_depositar;
-    private javax.swing.JLabel lb_titulo_girar;
-    private javax.swing.JLabel lb_transferencia;
+    private javax.swing.JLabel lb_tipoCuenta;
+    private javax.swing.JLabel lb_tipoCuenta_giro;
     private javax.swing.JTextField txt_ingreso_rut;
-    private javax.swing.JTextField txt_ingreso_rut1;
+    private javax.swing.JTextField txt_ingreso_rut_giro;
     private javax.swing.JTextField txt_monto_transferencia;
     private javax.swing.JTextField txt_num_cuenta_destino;
     private javax.swing.JTextField txt_num_cuenta_origen;
