@@ -36,8 +36,41 @@ public class funcionesBanco {
         }
     }
     
-    public static List<Cliente> clienteBancoGet(List<Cliente> clienteBanco){
-        List<Cliente> clienteBancoIn = clienteBanco; 
-        return clienteBancoIn;
-    } 
+    public static boolean verificarCuenta(List<Cliente> clienteBanco, String numeroCuenta){
+        for(int i = 0;i<=clienteBanco.size();i++){
+            if(clienteBanco.size()>0){
+                if(clienteBanco.get(i).getCuenta().equals(numeroCuenta)){
+                    return true;                    
+                }
+                else{
+                    return false;
+                }
+            }
+            return false;
+        }
+        return false;
+    }
+    
+    public static void transferenciaCuenta(List<Cliente> clienteBanco, String numeroCuenta, String informacion, int monto){
+        for(int i = 0;i<=clienteBanco.size();i++){
+            if(clienteBanco.size()>0){
+                if(clienteBanco.get(i).getCuenta().equals(numeroCuenta) && informacion.equals("O")){
+                    int nsaldo = clienteBanco.get(i).getCuenta().getSaldo() - monto;
+                    clienteBanco.get(i).getCuenta().setSaldo(nsaldo);
+                    break;
+                }
+                else if(clienteBanco.get(i).getCuenta().equals(numeroCuenta) && informacion.equals("D")){
+                    int nsaldo = clienteBanco.get(i).getCuenta().getSaldo() + monto;
+                    clienteBanco.get(i).getCuenta().setSaldo(nsaldo);
+                    break;
+                }
+                else{
+                    break;
+                }
+            }
+            else{
+               break; 
+            }
+        }
+    }
 }

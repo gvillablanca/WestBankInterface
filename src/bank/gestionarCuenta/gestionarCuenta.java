@@ -75,12 +75,12 @@ public class gestionarCuenta extends javax.swing.JFrame {
         lb_num_cuenta_destino = new javax.swing.JLabel();
         txt_num_cuenta_origen = new javax.swing.JTextField();
         txt_num_cuenta_destino = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btn_validar_cuenta = new javax.swing.JButton();
         jp_transferencia_monto = new javax.swing.JPanel();
         lb_monto_transferencia = new javax.swing.JLabel();
         txt_monto_transferencia = new javax.swing.JTextField();
         btn_hacer_transferencia = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_nueva_transferencia = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -242,13 +242,10 @@ public class gestionarCuenta extends javax.swing.JFrame {
         jp_datos_monto_depLayout.setHorizontalGroup(
             jp_datos_monto_depLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_datos_monto_depLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jp_datos_monto_depLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_datos_monto_depLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lb_saldo_deposito))
-                    .addGroup(jp_datos_monto_depLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txt_saldo_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lb_saldo_deposito)
+                    .addComponent(txt_saldo_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(199, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_datos_monto_depLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -414,15 +411,8 @@ public class gestionarCuenta extends javax.swing.JFrame {
 
         lb_ingrese_rut1.setText("Ingrese rut de usuario sin punto ni guiones");
 
-        txt_ingreso_rut_giro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_ingreso_rut_giroActionPerformed(evt);
-            }
-        });
-
         btn_validar_rut1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/search.png"))); // NOI18N
         btn_validar_rut1.setText("Validar RUT");
-        btn_validar_rut1.setPreferredSize(new java.awt.Dimension(122, 36));
         btn_validar_rut1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_validar_rut1ActionPerformed(evt);
@@ -438,7 +428,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(txt_ingreso_rut_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_validar_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_validar_rut1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lb_ingrese_rut1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -501,8 +491,13 @@ public class gestionarCuenta extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/finalizar.png"))); // NOI18N
-        jButton1.setText("Validar");
+        btn_validar_cuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/finalizar.png"))); // NOI18N
+        btn_validar_cuenta.setText("Validar datos ingresados");
+        btn_validar_cuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_validar_cuentaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_datos_transferenciaLayout = new javax.swing.GroupLayout(jp_datos_transferencia);
         jp_datos_transferencia.setLayout(jp_datos_transferenciaLayout);
@@ -513,10 +508,10 @@ public class gestionarCuenta extends javax.swing.JFrame {
                 .addGroup(jp_datos_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lb_num_cuenta_origen, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lb_num_cuenta_destino, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_num_cuenta_origen, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jp_datos_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txt_num_cuenta_destino, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE))
-                    .addComponent(txt_num_cuenta_origen, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_validar_cuenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txt_num_cuenta_destino, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)))
                 .addContainerGap(99, Short.MAX_VALUE))
         );
         jp_datos_transferenciaLayout.setVerticalGroup(
@@ -530,30 +525,29 @@ public class gestionarCuenta extends javax.swing.JFrame {
                 .addComponent(lb_num_cuenta_destino)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_num_cuenta_destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jButton1)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(btn_validar_cuenta)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         jp_transferencia_monto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lb_monto_transferencia.setText("Ingrese Monto a Transferir");
 
-        txt_monto_transferencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_monto_transferenciaActionPerformed(evt);
-            }
-        });
-
         btn_hacer_transferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/transfer.png"))); // NOI18N
         btn_hacer_transferencia.setText("Transferir");
         btn_hacer_transferencia.setPreferredSize(new java.awt.Dimension(89, 23));
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/novo.png"))); // NOI18N
-        jButton2.setText("Nueva Transferencia");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_hacer_transferencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_hacer_transferenciaActionPerformed(evt);
+            }
+        });
+
+        btn_nueva_transferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/novo.png"))); // NOI18N
+        btn_nueva_transferencia.setText("Nueva Transferencia");
+        btn_nueva_transferencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nueva_transferenciaActionPerformed(evt);
             }
         });
 
@@ -565,7 +559,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
                 .addGroup(jp_transferencia_montoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_transferencia_montoLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_nueva_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_hacer_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jp_transferencia_montoLayout.createSequentialGroup()
@@ -585,7 +579,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jp_transferencia_montoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_hacer_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_nueva_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
 
@@ -607,7 +601,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
                 .addGroup(jp_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jp_transferencia_monto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jp_datos_transferencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -641,7 +635,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jp_girar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jp_transferencia, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addComponent(jp_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -719,10 +713,6 @@ public class gestionarCuenta extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_btn_hacer_depositoActionPerformed
 
-    private void txt_ingreso_rut_giroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ingreso_rut_giroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_ingreso_rut_giroActionPerformed
-
     private void txt_saldo_giroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_saldo_giroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_saldo_giroActionPerformed
@@ -764,14 +754,6 @@ public class gestionarCuenta extends javax.swing.JFrame {
         jp_datos_cliente_giro.setVisible(false);
         jp_saldo_giro.setVisible(false);
     }//GEN-LAST:event_btn_girarActionPerformed
-
-    private void txt_num_cuenta_origenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_num_cuenta_origenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_num_cuenta_origenActionPerformed
-
-    private void txt_num_cuenta_destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_num_cuenta_destinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_num_cuenta_destinoActionPerformed
 
     private void btn_transferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_transferirActionPerformed
         jp_depositar.setVisible(false);
@@ -876,13 +858,75 @@ public class gestionarCuenta extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_validar_rut1ActionPerformed
 
-    private void txt_monto_transferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_monto_transferenciaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_monto_transferenciaActionPerformed
+    private void btn_nueva_transferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nueva_transferenciaActionPerformed
+        jp_transferencia_monto.setVisible(false);
+        txt_num_cuenta_origen.setText("");
+        txt_num_cuenta_destino.setText("");
+        txt_monto_transferencia.setText("");        
+    }//GEN-LAST:event_btn_nueva_transferenciaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_validar_cuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_cuentaActionPerformed
+        if(txt_num_cuenta_origen.getText().isEmpty() || txt_num_cuenta_destino.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Complete los datos requeridos para validar", "Advertencia", JOptionPane.OK_OPTION); 
+        }
+        else{
+            if(funcionesBanco.isNumeric(txt_num_cuenta_origen.getText()) && funcionesBanco.isNumeric(txt_num_cuenta_destino.getText())){
+                int numeroCuentaOrigenInt = Integer.parseInt(txt_num_cuenta_origen.getText());
+                int numeroCuentaDestinoInt = Integer.parseInt(txt_num_cuenta_origen.getText());
+                if((txt_num_cuenta_origen.getText().length() == 9) && (numeroCuentaOrigenInt > 0) && (txt_num_cuenta_destino.getText().length() == 9) && (numeroCuentaDestinoInt > 0)){
+                    if(funcionesBanco.verificarCuenta(clienteBanco, txt_num_cuenta_origen.getText())){
+                        if(funcionesBanco.verificarCuenta(clienteBanco, txt_num_cuenta_destino.getText()) ){
+                            jp_transferencia_monto.setVisible(true); 
+                        }
+                        else{
+                           JOptionPane.showMessageDialog(null, "Cuenta de destino no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION); 
+                        }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Cuenta de origen no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
+                    }  
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Ingrese numeros de cuentas a transferir numericos y de 9 digitos", "Advertencia", JOptionPane.OK_OPTION);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Ingrese numeros de cuentas a transferir numericos y de 9 digitos", "Advertencia", JOptionPane.OK_OPTION);
+            }
+        }
+    }//GEN-LAST:event_btn_validar_cuentaActionPerformed
+
+    private void txt_num_cuenta_destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_num_cuenta_destinoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_txt_num_cuenta_destinoActionPerformed
+
+    private void txt_num_cuenta_origenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_num_cuenta_origenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_num_cuenta_origenActionPerformed
+
+    private void btn_hacer_transferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hacer_transferenciaActionPerformed
+        if(txt_monto_transferencia.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingresar monto a transferir", "Advertencia", JOptionPane.OK_OPTION);
+        }
+        else{
+            if(funcionesBanco.isNumeric(txt_monto_transferencia.getText())){
+                int montoTransferencia = Integer.parseInt(txt_monto_transferencia.getText());
+                if(montoTransferencia > 0){                    
+                    funcionesBanco.transferenciaCuenta(clienteBanco, txt_num_cuenta_origen.getText(), "O", montoTransferencia);
+                    funcionesBanco.transferenciaCuenta(clienteBanco, txt_num_cuenta_destino.getText(), "D", montoTransferencia);
+                    JOptionPane.showMessageDialog(null, "Transferencia exitosa", "Información", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else{
+                  JOptionPane.showMessageDialog(null, "Ingresar monto a transferir mayor a 0", "Advertencia", JOptionPane.OK_OPTION);  
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Ingresar valor numerico para transferir", "Advertencia", JOptionPane.OK_OPTION);
+            }
+            
+        }
+        
+    }//GEN-LAST:event_btn_hacer_transferenciaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -926,12 +970,12 @@ public class gestionarCuenta extends javax.swing.JFrame {
     private javax.swing.JButton btn_hacer_giro;
     private javax.swing.JButton btn_hacer_transferencia;
     private javax.swing.JButton btn_inicio;
+    private javax.swing.JButton btn_nueva_transferencia;
     private javax.swing.JButton btn_salir;
     private javax.swing.JButton btn_transferir;
+    private javax.swing.JButton btn_validar_cuenta;
     private javax.swing.JButton btn_validar_rut;
     private javax.swing.JButton btn_validar_rut1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
