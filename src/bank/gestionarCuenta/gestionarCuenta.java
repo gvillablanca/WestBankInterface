@@ -885,7 +885,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
         else{
             if(funcionesBanco.isNumeric(txt_num_cuenta_origen.getText()) && funcionesBanco.isNumeric(txt_num_cuenta_destino.getText())){
                 int numeroCuentaOrigenInt = Integer.parseInt(txt_num_cuenta_origen.getText());
-                int numeroCuentaDestinoInt = Integer.parseInt(txt_num_cuenta_origen.getText());
+                int numeroCuentaDestinoInt = Integer.parseInt(txt_num_cuenta_destino.getText());
                 if((txt_num_cuenta_origen.getText().length() == 9) && (numeroCuentaOrigenInt > 0) && (txt_num_cuenta_destino.getText().length() == 9) && (numeroCuentaDestinoInt > 0)){
                     if(funcionesBanco.verificarCuenta(clienteBanco, txt_num_cuenta_origen.getText())){
                         if(funcionesBanco.verificarCuenta(clienteBanco, txt_num_cuenta_destino.getText()) ){
@@ -924,10 +924,13 @@ public class gestionarCuenta extends javax.swing.JFrame {
         else{
             if(funcionesBanco.isNumeric(txt_monto_transferencia.getText())){
                 int montoTransferencia = Integer.parseInt(txt_monto_transferencia.getText());
-                if(montoTransferencia > 0){                    
-                    funcionesBanco.transferenciaCuenta(clienteBanco, txt_num_cuenta_origen.getText(), "O", montoTransferencia);
-                    funcionesBanco.transferenciaCuenta(clienteBanco, txt_num_cuenta_destino.getText(), "D", montoTransferencia);
-                    JOptionPane.showMessageDialog(null, "Transferencia exitosa", "Información", JOptionPane.INFORMATION_MESSAGE);
+                if(montoTransferencia > 0){
+                    if(funcionesBanco.transferenciaCuenta(clienteBanco, txt_num_cuenta_origen.getText(), "O", montoTransferencia) && funcionesBanco.transferenciaCuenta(clienteBanco, txt_num_cuenta_destino.getText(), "D", montoTransferencia)){
+                        JOptionPane.showMessageDialog(null, "Transferencia exitosa", "Información", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Error en sistema, volver a intentar nuevamente", "Advertencia", JOptionPane.OK_OPTION); 
+                    }
                 }
                 else{
                   JOptionPane.showMessageDialog(null, "Ingresar monto a transferir mayor a 0", "Advertencia", JOptionPane.OK_OPTION);  

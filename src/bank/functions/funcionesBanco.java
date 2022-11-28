@@ -45,23 +45,20 @@ public class funcionesBanco {
     
     public static boolean verificarCuenta(List<Cliente> clienteBanco, String numeroCuenta){
         try{
+            int numeroCuentaInt = Integer.parseInt(numeroCuenta);
             if(clienteBanco == null){
                 return false;
             }
             else{
                 for(int i = 0;i<=clienteBanco.size();i++){
                     if(clienteBanco.size()>0){
-                        if(clienteBanco.get(i).getCuenta().equals(numeroCuenta)){
+                        if(clienteBanco.get(i).getCuenta().getNumeroCuenta() == numeroCuentaInt){
                             return true;                    
                         }
-                        else{
-                            return false;
-                        }
                     }
-                    return false;
                 }
+                return false;
             }
-            return false; 
         }
         catch(NullPointerException e){
             System.out.println("error: " + e);
@@ -69,31 +66,30 @@ public class funcionesBanco {
         }
     }
     
-    public static void transferenciaCuenta(List<Cliente> clienteBanco, String numeroCuenta, String informacion, int monto){
+    public static boolean transferenciaCuenta(List<Cliente> clienteBanco, String numeroCuenta, String informacion, int monto){
         try{
+            int numeroCuentaInt = Integer.parseInt(numeroCuenta);
             for(int i = 0;i<=clienteBanco.size();i++){
                 if(clienteBanco.size()>0){
-                    if(clienteBanco.get(i).getCuenta().equals(numeroCuenta) && informacion.equals("O")){
-                        int nsaldo = clienteBanco.get(i).getCuenta().getSaldo() - monto;
-                        clienteBanco.get(i).getCuenta().setSaldo(nsaldo);
-                        break;
+                    if(clienteBanco.get(i).getCuenta().getNumeroCuenta() == numeroCuentaInt){
+                        if(informacion.equals("O")){
+                            int nsaldo = clienteBanco.get(i).getCuenta().getSaldo() - monto;
+                            clienteBanco.get(i).getCuenta().setSaldo(nsaldo);
+                            return true;
+                        }
+                        else if(informacion.equals("D")){
+                            int nsaldo = clienteBanco.get(i).getCuenta().getSaldo() + monto;
+                            clienteBanco.get(i).getCuenta().setSaldo(nsaldo);
+                           return true; 
+                        }                        
                     }
-                    else if(clienteBanco.get(i).getCuenta().equals(numeroCuenta) && informacion.equals("D")){
-                        int nsaldo = clienteBanco.get(i).getCuenta().getSaldo() + monto;
-                        clienteBanco.get(i).getCuenta().setSaldo(nsaldo);
-                        break;
-                    }
-                    else{
-                        break;
-                    }
-                }
-                else{
-                   break; 
                 }
             }
+            return false;
         }
         catch(NullPointerException e){
             System.out.println("error: " + e);
+            return false;
         }
     }
 }
