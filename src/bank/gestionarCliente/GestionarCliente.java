@@ -2,14 +2,14 @@ package bank.gestionarCliente;
 
 import bank.classBank.Cliente;
 import bank.classBank.Cuenta;
+import bank.functions.FuncionesMenu;
 import bank.functions.funcionesBanco;
-import bank.westbankinterface.Home;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class GestionarCliente extends javax.swing.JFrame {
-    List<Cliente> clienteBanco = new LinkedList<>();
+    ArrayList<Cliente> clienteBanco;
+    FuncionesMenu menu = new FuncionesMenu();
            
     String rut = new String();
     String nombre = new String();
@@ -22,9 +22,10 @@ public class GestionarCliente extends javax.swing.JFrame {
     String tipoCuenta = new String();
     int saldo = 0;
     
-    public GestionarCliente() {
+    public GestionarCliente(ArrayList<Cliente> clienteBanco) {
+        this.clienteBanco = clienteBanco;
         initComponents();
-        setLocationRelativeTo(null);
+
         jp_registrar_cliente.setVisible(false);
         jp_ver_datos.setVisible(false);
     }
@@ -631,8 +632,31 @@ public class GestionarCliente extends javax.swing.JFrame {
                 }
                 else{
                     rut = funcionesBanco.checkRut(txf_rut.getText());
-                    jp_formulario_cliente.setVisible(true);
-                    txf_rut.setEnabled(false);
+                    if(clienteBanco == null){
+                        rut = funcionesBanco.checkRut(txf_rut.getText());
+                        jp_formulario_cliente.setVisible(true);
+                        txf_rut.setEnabled(false);
+                    }
+                    else{
+                        for(int i = 0;i<=clienteBanco.size();i++){
+                            if(clienteBanco.size()>0){
+                                if(clienteBanco.get(i).getRut().equals(rut)){
+                                    JOptionPane.showMessageDialog(null, "Cliente ya se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
+                                    txf_rut.setEnabled(true);
+                                    txf_rut.setText("");
+                                    break;
+                                }
+                                else{
+                                    rut = funcionesBanco.checkRut(txf_rut.getText());
+                                    jp_formulario_cliente.setVisible(true);
+                                    txf_rut.setEnabled(false);
+                                    break;
+                                }
+                            }
+                        } 
+                    }
+                        
+                    
                 }   
             }
             else{
@@ -656,28 +680,74 @@ public class GestionarCliente extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Ingrese numero de cuenta valido o seleccione tipo de cuenta valido", "Advertencia", JOptionPane.OK_OPTION);
                 }
                 else{
-                    Cliente cliente = new Cliente();
-                    Cuenta cuenta = new Cuenta();
-                    
-                    tipoCuenta = cb_cuenta.getSelectedItem().toString();
-                    numeroCuenta = txf_numeroCuenta.getText();
-                    cliente.setRut(rut);
-                    cliente.setNombre(nombre.toUpperCase());
-                    cliente.setApellidoPaterno(apellidoPaterno.toUpperCase());
-                    cliente.setApellidoMaterno(apellidoMaterno.toUpperCase());
-                    cliente.setDomicilio(domicilio.toUpperCase());
-                    cliente.setComuna(comuna.toUpperCase());
-                    cliente.setTelefono(telefono);                    
-                    cuenta.setNumeroCuenta(Integer.parseInt(numeroCuenta));
-                    cuenta.setSaldo(saldo);
-                    cuenta.setTipoCuenta(numeroCuenta);
-                    cliente.setCuenta(cuenta);
-                    clienteBanco.add(cliente);
-                    JOptionPane.showMessageDialog(null, "Cliente Creado exitosamente!", "Información", JOptionPane.INFORMATION_MESSAGE);
-                    txf_rut.setText(""); txf_nombre.setText(""); txf_apPaterno.setText(""); txf_apMaterno.setText("");txf_direccion.setText(""); txf_comuna.setText(""); txf_telefono.setText(""); txf_numeroCuenta.setText("");
-                    jp_formulario_cliente.setVisible(false);
-                    jp_numero_cuenta.setVisible(false);
-                    txf_rut.setEnabled(true);
+                    if(clienteBanco == null ){
+                        clienteBanco = new ArrayList<Cliente>();
+                        Cliente cliente = new Cliente();
+                        Cuenta cuenta = new Cuenta();
+
+                        tipoCuenta = cb_cuenta.getSelectedItem().toString();
+                        numeroCuenta = txf_numeroCuenta.getText();
+                        cliente.setRut(rut);
+                        cliente.setNombre(nombre.toUpperCase());
+                        cliente.setApellidoPaterno(apellidoPaterno.toUpperCase());
+                        cliente.setApellidoMaterno(apellidoMaterno.toUpperCase());
+                        cliente.setDomicilio(domicilio.toUpperCase());
+                        cliente.setComuna(comuna.toUpperCase());
+                        cliente.setTelefono(telefono);                    
+                        cuenta.setNumeroCuenta(Integer.parseInt(numeroCuenta));
+                        cuenta.setSaldo(saldo);
+                        cuenta.setTipoCuenta(tipoCuenta);
+                        cliente.setCuenta(cuenta);
+                        clienteBanco.add(cliente);
+                        JOptionPane.showMessageDialog(null, "Cliente Creado exitosamente!", "Información", JOptionPane.INFORMATION_MESSAGE);
+                        txf_rut.setText(""); 
+                        txf_nombre.setText(""); 
+                        txf_apPaterno.setText(""); 
+                        txf_apMaterno.setText("");
+                        txf_direccion.setText(""); 
+                        txf_comuna.setText(""); 
+                        txf_telefono.setText(""); 
+                        txf_numeroCuenta.setText("");
+                        cb_cuenta.setSelectedIndex(0);
+                        jp_numero_cuenta.setVisible(false);
+                        btn_validar_datos.setVisible(true);
+                        jp_formulario_cliente.setVisible(false);
+                        txf_rut.setEnabled(true);
+                        
+                    }
+                    else{
+                        Cliente cliente = new Cliente();
+                        Cuenta cuenta = new Cuenta();
+
+                        tipoCuenta = cb_cuenta.getSelectedItem().toString();
+                        numeroCuenta = txf_numeroCuenta.getText();
+                        cliente.setRut(rut);
+                        cliente.setNombre(nombre.toUpperCase());
+                        cliente.setApellidoPaterno(apellidoPaterno.toUpperCase());
+                        cliente.setApellidoMaterno(apellidoMaterno.toUpperCase());
+                        cliente.setDomicilio(domicilio.toUpperCase());
+                        cliente.setComuna(comuna.toUpperCase());
+                        cliente.setTelefono(telefono);                    
+                        cuenta.setNumeroCuenta(Integer.parseInt(numeroCuenta));
+                        cuenta.setSaldo(saldo);
+                        cuenta.setTipoCuenta(tipoCuenta);
+                        cliente.setCuenta(cuenta);
+                        clienteBanco.add(cliente);
+                        JOptionPane.showMessageDialog(null, "Cliente Creado exitosamente!", "Información", JOptionPane.INFORMATION_MESSAGE);
+                        txf_rut.setText(""); 
+                        txf_nombre.setText(""); 
+                        txf_apPaterno.setText(""); 
+                        txf_apMaterno.setText("");
+                        txf_direccion.setText(""); 
+                        txf_comuna.setText(""); 
+                        txf_telefono.setText(""); 
+                        txf_numeroCuenta.setText("");
+                        cb_cuenta.setSelectedIndex(0);
+                        jp_numero_cuenta.setVisible(false);
+                        btn_validar_datos.setVisible(true);
+                        jp_formulario_cliente.setVisible(false);
+                        txf_rut.setEnabled(true);
+                    }                        
                 }                
             }
             else{
@@ -730,9 +800,7 @@ public class GestionarCliente extends javax.swing.JFrame {
                                 break;
                             }
                             else{
-                                JOptionPane.showMessageDialog(null, "Cliente no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
                                 txf_rut_datos.setEnabled(true);
-                                break;
                             }
                         }
                         else{
@@ -757,8 +825,7 @@ public class GestionarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ver_datos_mActionPerformed
 
     private void btn_inicio_mActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicio_mActionPerformed
-        Home home = new Home();
-        home.setVisible(true);
+        menu.home(clienteBanco);
         this.dispose();
     }//GEN-LAST:event_btn_inicio_mActionPerformed
 
@@ -813,41 +880,6 @@ public class GestionarCliente extends javax.swing.JFrame {
     private void cb_cuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_cuentaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_cuentaActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GestionarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GestionarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GestionarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GestionarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GestionarCliente().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_crear_cliente;

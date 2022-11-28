@@ -1,20 +1,21 @@
 package bank.gestionarCuenta;
 
 import bank.classBank.Cliente;
-import bank.westbankinterface.Home;
+import bank.functions.FuncionesMenu;
 import javax.swing.JOptionPane;
 import bank.functions.funcionesBanco;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
 
 public class gestionarCuenta extends javax.swing.JFrame {
     String rut = new String();
     String monto = new String();
-    List<Cliente> clienteBanco = new LinkedList<>();
+    ArrayList<Cliente> clienteBanco;
+    FuncionesMenu menu = new FuncionesMenu();
 
-    public gestionarCuenta() {
+    public gestionarCuenta(ArrayList<Cliente> clienteBanco) {
+        this.clienteBanco = clienteBanco;
         initComponents();
-        setLocationRelativeTo(null);
+        
         jp_depositar.setVisible(false);
         jp_girar.setVisible(false);
         jp_transferencia.setVisible(false);
@@ -484,6 +485,11 @@ public class gestionarCuenta extends javax.swing.JFrame {
                 txt_num_cuenta_origenActionPerformed(evt);
             }
         });
+        txt_num_cuenta_origen.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_num_cuenta_origenKeyTyped(evt);
+            }
+        });
 
         txt_num_cuenta_destino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -701,6 +707,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
                                 jp_datos_monto_dep.setVisible(false);
                                 txt_ingreso_rut.setEnabled(true);
                                 txt_ingreso_rut.setText("");
+                                txt_saldo_deposito.setText("");
                                 break;
                             }
                         }
@@ -719,32 +726,39 @@ public class gestionarCuenta extends javax.swing.JFrame {
 
     private void btn_hacer_giroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hacer_giroActionPerformed
         monto = txt_saldo_deposito.getText();
-            int montoInt = Integer.parseInt(monto);
+        int montoInt = Integer.parseInt(monto);
 
-            if(monto.isEmpty()){
-                JOptionPane.showMessageDialog(null, "Ingresar monto", "Advertencia", JOptionPane.OK_OPTION);
-            }
-            else{
-                for(int i = 0;i<=clienteBanco.size();i++){
-                    if(clienteBanco.get(i).getRut().equals(rut)){
-                        if(funcionesBanco.isNumeric(monto)){
-                            if(montoInt < 0 || montoInt == 0){
-                                JOptionPane.showMessageDialog(null, "Ingresar monto superior a 0", "Advertencia", JOptionPane.OK_OPTION);
-                            }else{
-                                int nsaldo = clienteBanco.get(i).getCuenta().getSaldo() - Integer.parseInt(monto);
-                                clienteBanco.get(i).getCuenta().setSaldo(nsaldo);
-                                break;
-                            }
-                        }
-                        else{
-                            JOptionPane.showMessageDialog(null, "Ingresar monto numerico", "Advertencia", JOptionPane.OK_OPTION);
+        if(monto.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingresar monto", "Advertencia", JOptionPane.OK_OPTION);
+        }
+        else{
+            for(int i = 0;i<=clienteBanco.size();i++){
+                if(clienteBanco.get(i).getRut().equals(rut)){
+                    if(funcionesBanco.isNumeric(monto)){
+                        if(montoInt < 0 || montoInt == 0 || monto.isEmpty()){
+                            JOptionPane.showMessageDialog(null, "Ingresar monto superior a 0", "Advertencia", JOptionPane.OK_OPTION);
+                        }else{
+                            int nsaldo = clienteBanco.get(i).getCuenta().getSaldo() - Integer.parseInt(monto);
+                            clienteBanco.get(i).getCuenta().setSaldo(nsaldo);
+                            JOptionPane.showMessageDialog(null, "Giro realizado con exito, su nuevo saldo es: " + nsaldo, "Completado", JOptionPane.INFORMATION_MESSAGE);
+                            lb_numeroCuenta.setText("");
+                            lb_tipoCuenta.setText("");
+                            lb_saldo_cuenta.setText("");
+                            jp_datos_deposito.setVisible(false);
+                            jp_datos_monto_dep.setVisible(false);
+                            txt_ingreso_rut.setEnabled(true);
+                            txt_ingreso_rut.setText("");
+                            txt_saldo_giro.setText("");
                             break;
-                            //aqui
-                            //limpia todo como si ingresarass de nuevo
                         }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Ingresar monto numerico", "Advertencia", JOptionPane.OK_OPTION);
+                        break;
                     }
                 }
             }
+        }
     }//GEN-LAST:event_btn_hacer_giroActionPerformed
 
     private void btn_girarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_girarActionPerformed
@@ -763,8 +777,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_transferirActionPerformed
 
     private void btn_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicioActionPerformed
-        Home home = new Home();
-        home.setVisible(true);
+        menu.home(clienteBanco);
         this.dispose();
     }//GEN-LAST:event_btn_inicioActionPerformed
 
@@ -785,27 +798,27 @@ public class gestionarCuenta extends javax.swing.JFrame {
                 }
                 else{
                     rut = funcionesBanco.checkRut(txt_ingreso_rut.getText());
-                    for(int i = 0;i<=clienteBanco.size();i++){
-			if(clienteBanco.size()>0){
-                            if(!clienteBanco.get(i).getRut().equals(rut)||clienteBanco.size()==0){
-				JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
-				break;
+                    if(clienteBanco == null){
+                        JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
+                    }
+                    else{
+                        for(int i = 0;i<=clienteBanco.size();i++){
+                            if(clienteBanco.size()>0){
+                                if(clienteBanco.get(i).getRut().equals(rut)||clienteBanco.size()==0){
+                                    lb_numeroCuenta.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getNumeroCuenta()));
+                                    lb_tipoCuenta.setText(": "+clienteBanco.get(i).getCuenta().getTipoCuenta());
+                                    lb_saldo_cuenta.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getSaldo()));
+                                    jp_datos_deposito.setVisible(true);
+                                    jp_datos_monto_dep.setVisible(true);
+                                    txt_ingreso_rut.setEnabled(false);
+                                    break;
+                                }
                             }
                             else{
-                                lb_numeroCuenta.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getNumeroCuenta()));
-                                lb_tipoCuenta.setText(": "+clienteBanco.get(i).getCuenta().getTipoCuenta());
-                                lb_saldo_cuenta.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getSaldo()));
-                                jp_datos_deposito.setVisible(true);
-                                jp_datos_monto_dep.setVisible(true);
-                                txt_ingreso_rut.setEnabled(false);
+                                txt_ingreso_rut.setEnabled(true);
                             }
-			}
-			else{
-                            JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
-                            txt_ingreso_rut.setEnabled(true);
-                            break;
-			}
-                    }			                    
+                        }
+                    }
                 }   
             }
             else{
@@ -816,44 +829,44 @@ public class gestionarCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_validar_rutActionPerformed
 
     private void btn_validar_rut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_rut1ActionPerformed
-        if(txt_ingreso_rut.getText().isEmpty()){
+        if(txt_ingreso_rut_giro.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese rut para validacion", "Advertencia", JOptionPane.OK_OPTION);
             txt_ingreso_rut_giro.setEnabled(true);
         }
         else{
-            if(funcionesBanco.isNumeric(txt_ingreso_rut.getText())){
-                if(txt_ingreso_rut.getText().length() < 8 || txt_ingreso_rut.getText().length() > 9){
+            if(funcionesBanco.isNumeric(txt_ingreso_rut_giro.getText())){
+                if(txt_ingreso_rut_giro.getText().length() < 8 || txt_ingreso_rut_giro.getText().length() > 9){
                     JOptionPane.showMessageDialog(null, "Ingresar rut valido sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
                     txt_ingreso_rut_giro.setEnabled(true);
                 }
                 else{
-                    rut = funcionesBanco.checkRut(txt_ingreso_rut.getText());
-                    for(int i = 0;i<=clienteBanco.size();i++){
-			if(clienteBanco.size()>0){
-                            if(!clienteBanco.get(i).getRut().equals(rut)||clienteBanco.size()==0){
-				JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
-				break;
+                    rut = funcionesBanco.checkRut(txt_ingreso_rut_giro.getText());
+                    if(clienteBanco == null){
+                        JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
+                    }
+                    else{
+                        for(int i = 0;i<=clienteBanco.size();i++){
+                            if(clienteBanco.size()>0){
+                                if(clienteBanco.get(i).getRut().equals(rut)||clienteBanco.size()==0){
+                                    lb_numero_cuenta_giro.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getNumeroCuenta()));
+                                    lb_tipoCuenta_giro.setText(": "+clienteBanco.get(i).getCuenta().getTipoCuenta());
+                                    lb_saldo_giro.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getSaldo()));
+                                    jp_datos_cliente_giro.setVisible(true);
+                                    jp_saldo_giro.setVisible(true);
+                                    txt_ingreso_rut_giro.setEnabled(false);
+                                    break;
+                                }
                             }
                             else{
-                                lb_numero_cuenta_giro.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getNumeroCuenta()));
-                                lb_tipoCuenta_giro.setText(": "+clienteBanco.get(i).getCuenta().getTipoCuenta());
-                                lb_saldo_giro.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getSaldo()));
-                                jp_datos_cliente_giro.setVisible(true);
-                                jp_saldo_giro.setVisible(true);
-                                txt_ingreso_rut_giro.setEnabled(false);
+                                txt_ingreso_rut_giro.setEnabled(true);
                             }
-			}
-			else{
-                            JOptionPane.showMessageDialog(null, "rut no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
-                            txt_ingreso_rut_giro.setEnabled(true);
-                            break;
-			}
-                    }			                    
+                        }
+                    }
                 }   
             }
             else{
                 JOptionPane.showMessageDialog(null, "Ingresar valor numerico, recuerde que el rut debe ir sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
-                txt_ingreso_rut.setEnabled(true);
+                txt_ingreso_rut_giro.setEnabled(true);
             }
         }
     }//GEN-LAST:event_btn_validar_rut1ActionPerformed
@@ -892,7 +905,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
             }
             else{
                 JOptionPane.showMessageDialog(null, "Ingrese numeros de cuentas a transferir numericos y de 9 digitos", "Advertencia", JOptionPane.OK_OPTION);
-            }
+            } 
         }
     }//GEN-LAST:event_btn_validar_cuentaActionPerformed
 
@@ -928,40 +941,10 @@ public class gestionarCuenta extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_hacer_transferenciaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(gestionarCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(gestionarCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(gestionarCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(gestionarCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void txt_num_cuenta_origenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_num_cuenta_origenKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_num_cuenta_origenKeyTyped
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new gestionarCuenta().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_depositar;

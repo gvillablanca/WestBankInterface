@@ -1,5 +1,6 @@
 package bank.westbankinterface;
 
+import bank.functions.FuncionesMenu;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -9,8 +10,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class WestBankInterface {
     public static void main(String[] args) {
         lookAndFeel();
-        Home menu = new Home();
-        menu.setVisible(true);
+        FuncionesMenu menu = new FuncionesMenu();
+        menu.home();
     }
 
     private static void lookAndFeel() {
