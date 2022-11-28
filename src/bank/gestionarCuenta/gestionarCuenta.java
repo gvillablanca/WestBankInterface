@@ -394,16 +394,16 @@ public class gestionarCuenta extends javax.swing.JFrame {
             .addGroup(jp_saldo_giroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jp_saldo_giroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lb_saldo_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_saldo_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_saldo_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lb_saldo_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_saldo_giroLayout.setVerticalGroup(
             jp_saldo_giroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_saldo_giroLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(31, 31, 31)
                 .addComponent(lb_saldo_giro)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_saldo_giro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(btn_hacer_giro, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -725,7 +725,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_saldo_giroActionPerformed
 
     private void btn_hacer_giroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hacer_giroActionPerformed
-        monto = txt_saldo_deposito.getText();
+        monto = txt_saldo_giro.getText();
         int montoInt = Integer.parseInt(monto);
 
         if(monto.isEmpty()){
@@ -742,12 +742,12 @@ public class gestionarCuenta extends javax.swing.JFrame {
                             clienteBanco.get(i).getCuenta().setSaldo(nsaldo);
                             JOptionPane.showMessageDialog(null, "Giro realizado con exito, su nuevo saldo es: " + nsaldo, "Completado", JOptionPane.INFORMATION_MESSAGE);
                             lb_numeroCuenta.setText("");
-                            lb_tipoCuenta.setText("");
-                            lb_saldo_cuenta.setText("");
-                            jp_datos_deposito.setVisible(false);
-                            jp_datos_monto_dep.setVisible(false);
-                            txt_ingreso_rut.setEnabled(true);
-                            txt_ingreso_rut.setText("");
+                            lb_tipoCuenta_giro.setText("");
+                            lb_saldo_giro.setText("");
+                            jp_datos_cliente_giro.setVisible(false);
+                            jp_saldo_giro.setVisible(false);
+                            txt_ingreso_rut_giro.setEnabled(true);
+                            txt_ingreso_rut_giro.setText("");
                             txt_saldo_giro.setText("");
                             break;
                         }
@@ -850,7 +850,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
                                 if(clienteBanco.get(i).getRut().equals(rut)||clienteBanco.size()==0){
                                     lb_numero_cuenta_giro.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getNumeroCuenta()));
                                     lb_tipoCuenta_giro.setText(": "+clienteBanco.get(i).getCuenta().getTipoCuenta());
-                                    lb_saldo_giro.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getSaldo()));
+                                    lb_saldoDisponible_giro.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getSaldo()));
                                     jp_datos_cliente_giro.setVisible(true);
                                     jp_saldo_giro.setVisible(true);
                                     txt_ingreso_rut_giro.setEnabled(false);

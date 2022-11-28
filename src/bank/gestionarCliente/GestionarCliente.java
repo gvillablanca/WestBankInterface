@@ -676,7 +676,8 @@ public class GestionarCliente extends javax.swing.JFrame {
         }
         else{
             if(funcionesBanco.isNumeric(txf_numeroCuenta.getText())){
-                if(txf_numeroCuenta.getText().length() < 9 || txf_numeroCuenta.getText().length() <= 0 || cb_cuenta.getSelectedItem().equals("Seleccione tipo de cuenta")){
+                int numeroCuentaInt = Integer.parseInt(txf_numeroCuenta.getText());
+                if(txf_numeroCuenta.getText().length() < 9 || txf_numeroCuenta.getText().length() > 9 || numeroCuentaInt <= 0 || cb_cuenta.getSelectedItem().equals("Seleccione tipo de cuenta")){
                     JOptionPane.showMessageDialog(null, "Ingrese numero de cuenta valido o seleccione tipo de cuenta valido", "Advertencia", JOptionPane.OK_OPTION);
                 }
                 else{
@@ -693,7 +694,7 @@ public class GestionarCliente extends javax.swing.JFrame {
                         cliente.setApellidoMaterno(apellidoMaterno.toUpperCase());
                         cliente.setDomicilio(domicilio.toUpperCase());
                         cliente.setComuna(comuna.toUpperCase());
-                        cliente.setTelefono(telefono);                    
+                        cliente.setTelefono(telefono);
                         cuenta.setNumeroCuenta(Integer.parseInt(numeroCuenta));
                         cuenta.setSaldo(saldo);
                         cuenta.setTipoCuenta(tipoCuenta);
@@ -772,43 +773,39 @@ public class GestionarCliente extends javax.swing.JFrame {
     private void btn_validar_rut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validar_rut1ActionPerformed
         if(txf_rut_datos.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese rut para validación", "Advertencia", JOptionPane.OK_OPTION);
-            txf_rut_datos.setEnabled(true);
         }
         else{
             if(funcionesBanco.isNumeric(txf_rut_datos.getText())){
                 if(txf_rut_datos.getText().length() < 8 || txf_rut_datos.getText().length() > 9){
                     JOptionPane.showMessageDialog(null, "Ingresar rut valido sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
-                    txf_rut_datos.setEnabled(true);
                 }
                 else{
                     rut = funcionesBanco.checkRut(txf_rut_datos.getText());
-                    txf_rut_datos.setEnabled(false);
-                    for(int i = 0;i<=clienteBanco.size();i++){
-                        if(clienteBanco.size()>0){
-                            if(clienteBanco.get(i).getRut().equals(rut)){
-                                jp_formulario_datos.setVisible(true);
-                                lb_rut.setText(": "+clienteBanco.get(i).getRut());
-                                lb_nombre.setText(": "+clienteBanco.get(i).getNombre());
-                                lb_aPaterno.setText(": "+clienteBanco.get(i).getApellidoPaterno());
-                                lb_aMaterno.setText(": "+clienteBanco.get(i).getApellidoMaterno());
-                                lb_direccion.setText(": "+clienteBanco.get(i).getDomicilio());
-                                lb_comuna.setText(": "+clienteBanco.get(i).getComuna());
-                                lb_telefono.setText(": "+clienteBanco.get(i).getTelefono());
-                                lb_numeroCuenta.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getNumeroCuenta()));
-                                lb_tipoCuenta.setText(": "+clienteBanco.get(i).getCuenta().getTipoCuenta());
-                                lb_saldo.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getSaldo()));
-                                break;
-                            }
-                            else{
-                                txf_rut_datos.setEnabled(true);
-                            }
-                        }
-                        else{
-                            JOptionPane.showMessageDialog(null, "Cliente no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
-                            txf_rut_datos.setEnabled(true);
-                            break;
-                        }
-                    }                    
+                    if(clienteBanco == null){
+                        JOptionPane.showMessageDialog(null, "Cliente no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION); 
+                    }
+                    else{
+                        for(int i = 0;i<=clienteBanco.size();i++){
+                                if(clienteBanco.get(i).getRut().equals(rut)){
+                                    jp_formulario_datos.setVisible(true);
+                                    lb_rut.setText(": "+clienteBanco.get(i).getRut());
+                                    lb_nombre.setText(": "+clienteBanco.get(i).getNombre());
+                                    lb_aPaterno.setText(": "+clienteBanco.get(i).getApellidoPaterno());
+                                    lb_aMaterno.setText(": "+clienteBanco.get(i).getApellidoMaterno());
+                                    lb_direccion.setText(": "+clienteBanco.get(i).getDomicilio());
+                                    lb_comuna.setText(": "+clienteBanco.get(i).getComuna());
+                                    lb_telefono.setText(": "+clienteBanco.get(i).getTelefono());
+                                    lb_numeroCuenta.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getNumeroCuenta()));
+                                    lb_tipoCuenta.setText(": "+clienteBanco.get(i).getCuenta().getTipoCuenta());
+                                    lb_saldo.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getSaldo()));
+                                    break;
+                                }
+                                if(clienteBanco.size()-1 == i){
+                                    JOptionPane.showMessageDialog(null, "Cliente no se registra en sistema", "Advertencia", JOptionPane.OK_OPTION); 
+                                    break;
+                                }
+                        } 
+                    }
                 }   
             }
             else{
