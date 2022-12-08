@@ -925,7 +925,8 @@ public class gestionarCuenta extends javax.swing.JFrame {
             if(funcionesBanco.isNumeric(txt_monto_transferencia.getText())){
                 int montoTransferencia = Integer.parseInt(txt_monto_transferencia.getText());
                 if(montoTransferencia > 0){
-                    if(funcionesBanco.transferenciaCuenta(clienteBanco, txt_num_cuenta_origen.getText(), "O", montoTransferencia) && funcionesBanco.transferenciaCuenta(clienteBanco, txt_num_cuenta_destino.getText(), "D", montoTransferencia)){
+                    if(funcionesBanco.transferenciaCuenta(clienteBanco, txt_num_cuenta_origen.getText(), "O", montoTransferencia) 
+                            && funcionesBanco.transferenciaCuenta(clienteBanco, txt_num_cuenta_destino.getText(), "D", montoTransferencia)){
                         JOptionPane.showMessageDialog(null, "Transferencia exitosa", "Información", JOptionPane.INFORMATION_MESSAGE);
                     }
                     else{
