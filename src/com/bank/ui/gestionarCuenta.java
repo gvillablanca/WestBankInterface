@@ -1,4 +1,4 @@
-package com.bank.gestionarCuenta;
+package com.bank.ui;
 
 import com.bank.classBank.Cliente;
 import com.bank.functions.FuncionesMenu;
@@ -626,7 +626,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jp_transferencia, javax.swing.GroupLayout.DEFAULT_SIZE, 757, Short.MAX_VALUE)
+                        .addComponent(jp_transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 757, Short.MAX_VALUE)
                         .addComponent(jp_depositar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jp_girar, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(23, Short.MAX_VALUE))

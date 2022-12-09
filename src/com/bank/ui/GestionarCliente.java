@@ -1,4 +1,4 @@
-package com.bank.gestionarCliente;
+package com.bank.ui;
 
 import com.bank.classBank.Cliente;
 import com.bank.classBank.Cuenta;

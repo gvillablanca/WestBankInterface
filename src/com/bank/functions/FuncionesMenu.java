@@ -1,8 +1,8 @@
 package com.bank.functions;
 
 import com.bank.classBank.Cliente;
-import com.bank.gestionarCliente.GestionarCliente;
-import com.bank.gestionarCuenta.gestionarCuenta;
+import com.bank.ui.GestionarCliente;
+import com.bank.ui.gestionarCuenta;
 import com.bank.westbankinterface.Home;
 import java.util.ArrayList;
 
