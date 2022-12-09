@@ -87,11 +87,12 @@ public class gestionarCuenta extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(900, 523));
 
         jToolBar1.setRollover(true);
         jToolBar1.setPreferredSize(new java.awt.Dimension(234, 84));
 
-        btn_depositar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/deposito.png"))); // NOI18N
+        btn_depositar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/deposito.png"))); // NOI18N
         btn_depositar.setText("Depositar");
         btn_depositar.setFocusable(false);
         btn_depositar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -103,7 +104,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
         });
         jToolBar1.add(btn_depositar);
 
-        btn_girar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/giro.png"))); // NOI18N
+        btn_girar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/giro.png"))); // NOI18N
         btn_girar.setText("        Girar        ");
         btn_girar.setFocusable(false);
         btn_girar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -115,7 +116,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
         });
         jToolBar1.add(btn_girar);
 
-        btn_transferir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/transferir.png"))); // NOI18N
+        btn_transferir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/transferir.png"))); // NOI18N
         btn_transferir.setText("      Transferir     ");
         btn_transferir.setFocusable(false);
         btn_transferir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -127,7 +128,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
         });
         jToolBar1.add(btn_transferir);
 
-        btn_inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/home.png"))); // NOI18N
+        btn_inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/home.png"))); // NOI18N
         btn_inicio.setText("        Inicio        ");
         btn_inicio.setFocusable(false);
         btn_inicio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -139,7 +140,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
         });
         jToolBar1.add(btn_inicio);
 
-        btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/exit.png"))); // NOI18N
+        btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/exit.png"))); // NOI18N
         btn_salir.setText("        Salir        ");
         btn_salir.setFocusable(false);
         btn_salir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -159,7 +160,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
             }
         });
 
-        btn_validar_rut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/search.png"))); // NOI18N
+        btn_validar_rut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/search.png"))); // NOI18N
         btn_validar_rut.setText("Validar RUT");
         btn_validar_rut.setPreferredSize(new java.awt.Dimension(122, 32));
         btn_validar_rut.addActionListener(new java.awt.event.ActionListener() {
@@ -229,7 +230,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
         });
 
         btn_hacer_deposito.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        btn_hacer_deposito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/insert_cash.png"))); // NOI18N
+        btn_hacer_deposito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/insert_cash.png"))); // NOI18N
         btn_hacer_deposito.setText("Hacer Depósito");
         btn_hacer_deposito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -374,7 +375,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
         });
 
         btn_hacer_giro.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        btn_hacer_giro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/girar.png"))); // NOI18N
+        btn_hacer_giro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/girar.png"))); // NOI18N
         btn_hacer_giro.setText("Hacer Giro");
         btn_hacer_giro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -411,7 +412,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
 
         lb_ingrese_rut1.setText("Ingrese rut de usuario sin punto ni guiones");
 
-        btn_validar_rut1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/search.png"))); // NOI18N
+        btn_validar_rut1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/search.png"))); // NOI18N
         btn_validar_rut1.setText("Validar RUT");
         btn_validar_rut1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -496,7 +497,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
             }
         });
 
-        btn_validar_cuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/finalizar.png"))); // NOI18N
+        btn_validar_cuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/finalizar.png"))); // NOI18N
         btn_validar_cuenta.setText("Validar datos ingresados");
         btn_validar_cuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -539,7 +540,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
 
         lb_monto_transferencia.setText("Ingrese Monto a Transferir");
 
-        btn_hacer_transferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/transfer.png"))); // NOI18N
+        btn_hacer_transferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/transfer.png"))); // NOI18N
         btn_hacer_transferencia.setText("Transferir");
         btn_hacer_transferencia.setPreferredSize(new java.awt.Dimension(89, 23));
         btn_hacer_transferencia.addActionListener(new java.awt.event.ActionListener() {
@@ -548,7 +549,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
             }
         });
 
-        btn_nueva_transferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/novo.png"))); // NOI18N
+        btn_nueva_transferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/novo.png"))); // NOI18N
         btn_nueva_transferencia.setText("Nueva Transferencia");
         btn_nueva_transferencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -606,7 +607,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
                 .addGroup(jp_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jp_transferencia_monto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jp_datos_transferencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");

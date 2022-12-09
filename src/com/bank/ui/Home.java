@@ -40,7 +40,7 @@ public class Home extends javax.swing.JFrame {
         bar_menu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         bar_menu.setRollover(true);
 
-        btn_gestionar_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/gestionar_Cliente.png"))); // NOI18N
+        btn_gestionar_cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/gestionar_Cliente.png"))); // NOI18N
         btn_gestionar_cliente.setText("Gestionar Cliente   ");
         btn_gestionar_cliente.setToolTipText("");
         btn_gestionar_cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -52,7 +52,7 @@ public class Home extends javax.swing.JFrame {
         });
         bar_menu.add(btn_gestionar_cliente);
 
-        btn_gestionar_cuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/gestionarcuenta.png"))); // NOI18N
+        btn_gestionar_cuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/gestionarcuenta.png"))); // NOI18N
         btn_gestionar_cuenta.setText("Gestionar Cuenta   ");
         btn_gestionar_cuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,7 +61,7 @@ public class Home extends javax.swing.JFrame {
         });
         bar_menu.add(btn_gestionar_cuenta);
 
-        btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/exit.png"))); // NOI18N
+        btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/exit.png"))); // NOI18N
         btn_salir.setText("Salir   ");
         btn_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,13 +70,13 @@ public class Home extends javax.swing.JFrame {
         });
         bar_menu.add(btn_salir);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/bank.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/bank.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 48)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/title_a.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/title_a.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 48)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/img/title_b.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/bank/img/title_b.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,7 +93,7 @@ public class Home extends javax.swing.JFrame {
                         .addGap(101, 101, 101)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lb_bienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +110,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel3)))
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         pack();

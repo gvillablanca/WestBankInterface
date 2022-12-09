@@ -1,5 +1,9 @@
 package com.bank.classBank;
 
+import com.bank.dataaccess.ClienteDA;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Cliente {
     String rut;
     String nombre;
@@ -90,4 +94,32 @@ public class Cliente {
                     ", SALDO='" + cuenta.saldo + '\'' +
                     '}';
         }
+public Cliente obtener(String rut){
+        ResultSet rs = new ClienteDA().get(rut);
+        if(rs !=null){
+            try{
+                if(rs.next()){
+                    this.rut = rs.getString("rut");
+                    this.nombre = rs.getString("nombre");
+                    this.apellidoPaterno = rs.getString("apellido_paterno");
+                    this.apellidoMaterno = rs.getString("apellido_materno");
+                    this.domicilio = rs.getString("domicilio");
+                    this.comuna = rs.getString("comuna");
+                    this.telefono = rs.getString("telefono");
+                    this.cuenta.numeroCuenta = rs.getInt("numero_cuenta");
+                    return this;
+                }
+                else{
+                    System.out.println("Falló");
+                    return null;
+                }
+            }catch(SQLException ex) {
+                System.out.println("Falló" + ex);
+                return null;
+            }
+        }
+        else{
+        return null;
+        }
+    }
 }

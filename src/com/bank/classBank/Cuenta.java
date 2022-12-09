@@ -1,5 +1,9 @@
 package com.bank.classBank;
 
+import com.bank.dataaccess.CuentaDA;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Cuenta {
     int numeroCuenta;
     String tipoCuenta;
@@ -36,5 +40,30 @@ public class Cuenta {
                 "TIPO-CUENTA='" + tipoCuenta + '\'' +
                 ", SALDO='" + saldo + '\'' +
                 '}';
-    }    
+    }
+
+public Cuenta obtener(int numero_cuenta){
+        ResultSet rs = new CuentaDA().get(numero_cuenta);
+        if(rs !=null){
+            try{
+                if(rs.next()){
+                    this.numeroCuenta = rs.getInt("numero_cuenta");
+                    this.tipoCuenta = rs.getString("tipo_cuenta");
+                    this.saldo = rs.getInt("saldo");
+                    return this;
+                }
+                else{
+                    System.out.println("Falló");
+                    return null;
+                }
+            }catch(SQLException ex) {
+                System.out.println("Falló" + ex);
+                return null;
+            }
+        }
+        else{
+        return null;
+        }
+    }
+    
 }
