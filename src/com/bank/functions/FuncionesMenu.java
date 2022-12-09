@@ -3,7 +3,7 @@ package com.bank.functions;
 import com.bank.classBank.Cliente;
 import com.bank.ui.GestionarCliente;
 import com.bank.ui.gestionarCuenta;
-import com.bank.westbankinterface.Home;
+import com.bank.ui.Home;
 import java.util.ArrayList;
 
 public class FuncionesMenu {

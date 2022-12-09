@@ -1,4 +1,4 @@
-package com.bank.westbankinterface;
+package com.bank.ui;
 
 import com.bank.classBank.Cliente;
 import com.bank.functions.FuncionesMenu;
