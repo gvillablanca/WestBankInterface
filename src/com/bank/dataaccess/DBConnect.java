@@ -1,12 +1,16 @@
 package com.bank.dataaccess;
 
+import com.bank.properties.Conexion;
+import java.io.FileReader;
 import java.sql.*;
+import java.util.Properties;
 
 public class DBConnect {
-    private Connection conn;
+    private Connection conn;   
     
     public DBConnect(){
         try{
+            Conexion propertie = new Conexion();
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://127.0.0.1:3306/west_bank";
             String user = "ADMIN";
