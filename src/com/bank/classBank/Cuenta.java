@@ -42,8 +42,22 @@ public class Cuenta {
                 '}';
     }
 
-public Cuenta obtener(int numero_cuenta){
-        ResultSet rs = new CuentaDA().get(numero_cuenta);
+    public boolean modificarSaldo(int saldo, int numero_cuenta){
+        this.setNumeroCuenta(numero_cuenta);
+        this.setSaldo(saldo);
+        
+        int reg = new CuentaDA().updateSaldo(this);
+        
+        if(reg == 1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public Cuenta obtener(int numero_cuenta){
+        ResultSet rs = new CuentaDA().verificarCuenta(numero_cuenta);
         if(rs !=null){
             try{
                 if(rs.next()){

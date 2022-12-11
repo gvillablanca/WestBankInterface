@@ -680,7 +680,7 @@
                       <Component id="jp_transferencia_monto" max="32767" attributes="0"/>
                       <Component id="jp_datos_transferencia" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="43" max="32767" attributes="0"/>
+                  <EmptySpace pref="25" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

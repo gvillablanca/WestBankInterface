@@ -12,7 +12,7 @@ public class Cliente {
     String domicilio;
     String comuna;
     String telefono;
-    Cuenta cuenta;
+    int cuenta;
 
         public String getRut() {
             return rut;
@@ -70,16 +70,15 @@ public class Cliente {
             this.telefono = telefono;
         }
 
-        public Cuenta getCuenta() {
+        public int getCuenta() {
             return cuenta;
         }
 
-        public void setCuenta(Cuenta cuenta) {
+        public void setCuenta(int cuenta) {
             this.cuenta = cuenta;
         }
 
-
-
+        
         @Override
         public String toString() {
             return "Cliente{" +
@@ -90,23 +89,17 @@ public class Cliente {
                     ", DOMICILIO='" + domicilio + '\'' +
                     ", COMUNA='" + comuna + '\'' +
                     ", TELEFONO='" + telefono + '\'' +
-                    ", CUENTA='" + cuenta.numeroCuenta + '\'' +
-                    ", SALDO='" + cuenta.saldo + '\'' +
+                    ", CUENTA='" + cuenta + '\'' +
                     '}';
         }
-public Cliente obtener(String rut){
-        ResultSet rs = new ClienteDA().get(rut);
+        
+        
+    public Cliente obtener(String rut){
+        ResultSet rs = new ClienteDA().verificarCliente(rut);
         if(rs !=null){
             try{
                 if(rs.next()){
                     this.rut = rs.getString("rut");
-                    this.nombre = rs.getString("nombre");
-                    this.apellidoPaterno = rs.getString("apellido_paterno");
-                    this.apellidoMaterno = rs.getString("apellido_materno");
-                    this.domicilio = rs.getString("domicilio");
-                    this.comuna = rs.getString("comuna");
-                    this.telefono = rs.getString("telefono");
-                    this.cuenta.numeroCuenta = rs.getInt("numero_cuenta");
                     return this;
                 }
                 else{
@@ -119,7 +112,38 @@ public Cliente obtener(String rut){
             }
         }
         else{
-        return null;
+            return null;
         }
     }
+    
+    public Cliente dataFull(String rut){
+        ResultSet rs = new ClienteDA().get(rut);
+        if(rs !=null){
+            try{
+                if(rs.next()){
+                    this.rut = rs.getString("rut");
+                    this.nombre = rs.getString("nombre");
+                    this.apellidoPaterno = rs.getString("apellido_paterno");
+                    this.apellidoMaterno = rs.getString("apellido_materno");
+                    this.domicilio = rs.getString("domicilio");
+                    this.comuna = rs.getString("comuna");
+                    this.telefono = rs.getString("telefono");
+                    this.cuenta = rs.getInt("numero_cuenta");
+                    return this;
+                }
+                else{
+                    System.out.println("Falló");
+                    return null;
+                }
+            }catch(SQLException ex) {
+                System.out.println("Falló" + ex);
+                return null;
+            }
+        }
+        else{
+            return null;
+        }
+    }
+    
+    
 }

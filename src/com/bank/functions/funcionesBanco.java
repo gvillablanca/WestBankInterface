@@ -1,7 +1,9 @@
 package com.bank.functions;
 
 import com.bank.classBank.Cliente;
-import java.util.List;
+import com.bank.classBank.Cuenta;
+import javax.swing.JOptionPane;
+
 
 public class funcionesBanco {    
     public static boolean isNumeric(String cadena){
@@ -43,22 +45,18 @@ public class funcionesBanco {
         }
     }
     
-    public static boolean verificarCuenta(List<Cliente> clienteBanco, String numeroCuenta){
+    public static boolean verificarCuenta(String numeroCuenta){
         try{
             int numeroCuentaInt = Integer.parseInt(numeroCuenta);
-            if(clienteBanco == null){
-                return false;
+            Cuenta cuenta = new Cuenta();
+            cuenta.obtener(numeroCuentaInt);
+            
+            if(cuenta.getNumeroCuenta() != 0){
+                return true;
             }
             else{
-                for(int i = 0;i<=clienteBanco.size();i++){
-                    if(clienteBanco.size()>0){
-                        if(clienteBanco.get(i).getCuenta().getNumeroCuenta() == numeroCuentaInt){
-                            return true;                    
-                        }
-                    }
-                }
                 return false;
-            }
+            }            
         }
         catch(NullPointerException e){
             System.out.println("error: " + e);
@@ -66,26 +64,113 @@ public class funcionesBanco {
         }
     }
     
-    public static boolean transferenciaCuenta(List<Cliente> clienteBanco, String numeroCuenta, String informacion, int monto){
+    public static boolean verificarRut(String rut){
+        try{
+            Cliente cliente = new Cliente();
+            cliente.obtener(rut);
+            
+            if(cliente.getRut() != null){
+                return true;
+            }
+            else{
+                return false;
+            }  
+            
+        }
+        catch(NullPointerException e){
+            System.out.println("error: " + e);
+            return false;
+        }
+    }
+    
+    public static boolean transferenciaCuenta(String numeroCuenta, int monto, String informacion){
         try{
             int numeroCuentaInt = Integer.parseInt(numeroCuenta);
-            for(int i = 0;i<=clienteBanco.size();i++){
-                if(clienteBanco.size()>0){
-                    if(clienteBanco.get(i).getCuenta().getNumeroCuenta() == numeroCuentaInt){
-                        if(informacion.equals("O")){
-                            int nsaldo = clienteBanco.get(i).getCuenta().getSaldo() - monto;
-                            clienteBanco.get(i).getCuenta().setSaldo(nsaldo);
-                            return true;
+            
+            Cuenta cuenta = new Cuenta();
+            cuenta.obtener(numeroCuentaInt);
+            
+            if(cuenta != null){
+                if(informacion.equals("O")){                
+                    if(cuenta.getSaldo() > 0 || cuenta.getSaldo() >= monto){
+                        int saldoOrigenNuevo = cuenta.getSaldo() - monto;
+                        if(cuenta.modificarSaldo(saldoOrigenNuevo, numeroCuentaInt)){
+                            return true; 
                         }
-                        else if(informacion.equals("D")){
-                            int nsaldo = clienteBanco.get(i).getCuenta().getSaldo() + monto;
-                            clienteBanco.get(i).getCuenta().setSaldo(nsaldo);
-                           return true; 
-                        }                        
+                        else{
+                            return false;
+                        }                         
                     }
+                    else{
+                       JOptionPane.showMessageDialog(null, "Saldo insuficiente para transferencia", "Advertencia", JOptionPane.OK_OPTION);
+                       return false; 
+                    }                    
                 }
+                else if(informacion.equals("D")){          
+                    int saldoDestinoNuevo = cuenta.getSaldo() + monto;
+                    if(cuenta.modificarSaldo(saldoDestinoNuevo, numeroCuentaInt)){
+                        return true; 
+                    }
+                    else{
+                        return false;
+                    } 
+                }
+                else{
+                   return false;  
+                }    
             }
+            else{
+               return false; 
+            }   
+        }
+        catch(NullPointerException e){
+            System.out.println("error: " + e);
             return false;
+        }
+    }
+    
+    public static boolean depositoGiro(String rut, int monto, String informacion){
+        try{
+            Cliente cliente = new Cliente();
+            cliente.dataFull(rut);
+            
+            int numeroCuentaInt = cliente.getCuenta();
+            
+            Cuenta cuenta = new Cuenta();
+            cuenta.obtener(numeroCuentaInt);
+            
+            if(cuenta != null){
+                if(informacion.equals("GRO")){                
+                    if(cuenta.getSaldo() > 0 && cuenta.getSaldo() >= monto){
+                        int saldoOrigenNuevo = cuenta.getSaldo() - monto;
+                        if(cuenta.modificarSaldo(saldoOrigenNuevo, numeroCuentaInt)){
+                            return true; 
+                        }
+                        else{
+                            return false;
+                        }                         
+                    }
+                    else{
+                       return false; 
+                    }                    
+                }
+                else if(informacion.equals("DTO")){          
+                    int saldoDestinoNuevo = cuenta.getSaldo() + monto;
+                    if(cuenta.modificarSaldo(saldoDestinoNuevo, numeroCuentaInt)){
+                        return true; 
+                    }
+                    else{
+                        return false;
+                    } 
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Error en sistema, volver a intentar nuevamente", "Advertencia", JOptionPane.OK_OPTION);
+                    return false;                   
+                }    
+            }
+            else{
+               return false; 
+            }   
         }
         catch(NullPointerException e){
             System.out.println("error: " + e);

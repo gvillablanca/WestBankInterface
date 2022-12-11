@@ -625,43 +625,12 @@ public class GestionarCliente extends javax.swing.JFrame {
             txf_rut.setEnabled(true);
         }
         else{
-            if(funcionesBanco.isNumeric(txf_rut.getText())){
-                if(txf_rut.getText().length() < 8 || txf_rut.getText().length() > 9){
-                    JOptionPane.showMessageDialog(null, "Ingresar rut valido sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
-                    txf_rut.setEnabled(true);
-                }
-                else{
-                    rut = funcionesBanco.checkRut(txf_rut.getText());
-                    if(clienteBanco == null){
-                        rut = funcionesBanco.checkRut(txf_rut.getText());
-                        jp_formulario_cliente.setVisible(true);
-                        txf_rut.setEnabled(false);
-                    }
-                    else{
-                        for(int i = 0;i<=clienteBanco.size();i++){
-                            if(clienteBanco.size()>0){
-                                if(clienteBanco.get(i).getRut().equals(rut)){
-                                    JOptionPane.showMessageDialog(null, "Cliente ya se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
-                                    txf_rut.setEnabled(true);
-                                    txf_rut.setText("");
-                                    break;
-                                }
-                                else{
-                                    rut = funcionesBanco.checkRut(txf_rut.getText());
-                                    jp_formulario_cliente.setVisible(true);
-                                    txf_rut.setEnabled(false);
-                                    break;
-                                }
-                            }
-                        } 
-                    }
-                        
-                    
-                }   
+            rut = funcionesBanco.checkRut(txf_rut.getText());
+            if(funcionesBanco.verificarRut(rut)){
+                jp_formulario_cliente.setVisible(true);
             }
             else{
-                JOptionPane.showMessageDialog(null, "Ingresar valor numerico, recuerde que el rut debe ir sin puntos ni guiones", "Advertencia", JOptionPane.OK_OPTION);
-                txf_rut.setEnabled(true);
+                JOptionPane.showMessageDialog(null, "Cliente ya se registra en sistema", "Advertencia", JOptionPane.OK_OPTION);
             }
         }
     }//GEN-LAST:event_btn_validar_rutActionPerformed
@@ -698,7 +667,7 @@ public class GestionarCliente extends javax.swing.JFrame {
                         cuenta.setNumeroCuenta(Integer.parseInt(numeroCuenta));
                         cuenta.setSaldo(saldo);
                         cuenta.setTipoCuenta(tipoCuenta);
-                        cliente.setCuenta(cuenta);
+                        //cliente.setCuenta(cuenta);
                         clienteBanco.add(cliente);
                         JOptionPane.showMessageDialog(null, "Cliente Creado exitosamente!", "Información", JOptionPane.INFORMATION_MESSAGE);
                         txf_rut.setText(""); 
@@ -732,7 +701,7 @@ public class GestionarCliente extends javax.swing.JFrame {
                         cuenta.setNumeroCuenta(Integer.parseInt(numeroCuenta));
                         cuenta.setSaldo(saldo);
                         cuenta.setTipoCuenta(tipoCuenta);
-                        cliente.setCuenta(cuenta);
+                        //cliente.setCuenta(cuenta);
                         clienteBanco.add(cliente);
                         JOptionPane.showMessageDialog(null, "Cliente Creado exitosamente!", "Información", JOptionPane.INFORMATION_MESSAGE);
                         txf_rut.setText(""); 
@@ -795,9 +764,9 @@ public class GestionarCliente extends javax.swing.JFrame {
                                     lb_direccion.setText(": "+clienteBanco.get(i).getDomicilio());
                                     lb_comuna.setText(": "+clienteBanco.get(i).getComuna());
                                     lb_telefono.setText(": "+clienteBanco.get(i).getTelefono());
-                                    lb_numeroCuenta.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getNumeroCuenta()));
-                                    lb_tipoCuenta.setText(": "+clienteBanco.get(i).getCuenta().getTipoCuenta());
-                                    lb_saldo.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getSaldo()));
+                                    //lb_numeroCuenta.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getNumeroCuenta()));
+                                    //lb_tipoCuenta.setText(": "+clienteBanco.get(i).getCuenta().getTipoCuenta());
+                                    //lb_saldo.setText(": "+Integer.toString(clienteBanco.get(i).getCuenta().getSaldo()));
                                     break;
                                 }
                                 if(clienteBanco.size()-1 == i){
