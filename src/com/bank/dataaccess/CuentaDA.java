@@ -38,4 +38,21 @@ public class CuentaDA {
         } 
     }
     
+    public int crearCuenta(Cuenta cuenta){
+        DBConnect dbCtx = new DBConnect(); 
+        String st = "INSERT INTO CUENTA(NUMERO_CUENTA, TIPO_CUENTA, SALDO)\n" +
+                    "VALUES(?, ?, 0)";
+        int rs;
+        try{
+            PreparedStatement pst = dbCtx.getConnection().prepareStatement(st);
+            pst.setInt(1, cuenta.getNumeroCuenta());
+            pst.setString(2, cuenta.getTipoCuenta());            
+            rs=pst.executeUpdate();
+            return rs;
+        }
+        catch(SQLException e){
+            System.out.println("error: " + e.getMessage());
+            return 0;
+        }        
+    }    
 }
