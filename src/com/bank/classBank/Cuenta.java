@@ -80,4 +80,19 @@ public class Cuenta {
         }
     }
     
+    public boolean crearCuenta(int numero_cuenta,String tipo_cuenta ,int saldo){
+        this.setNumeroCuenta(numero_cuenta);
+        this.setTipoCuenta(tipo_cuenta);
+        this.setSaldo(saldo);
+        
+        int reg = new CuentaDA().crearCuenta(this);
+        
+        if(reg == 1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+        
 }
