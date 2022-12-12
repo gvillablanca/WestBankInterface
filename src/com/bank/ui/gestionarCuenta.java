@@ -890,9 +890,6 @@ public class gestionarCuenta extends javax.swing.JFrame {
                         jp_transferencia_monto.setVisible(false);
                         JOptionPane.showMessageDialog(null, "Transferencia exitosa", "Información", JOptionPane.INFORMATION_MESSAGE);
                     }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Error en sistema, volver a intentar nuevamente", "Advertencia", JOptionPane.OK_OPTION); 
-                    }
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "Ingresar monto a transferir mayor a 0", "Advertencia", JOptionPane.OK_OPTION);  

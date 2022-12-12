@@ -92,7 +92,7 @@ public class funcionesBanco {
             
             if(cuenta != null){
                 if(informacion.equals("O")){                
-                    if(cuenta.getSaldo() > 0 || cuenta.getSaldo() >= monto){
+                    if(cuenta.getSaldo() > 0 && cuenta.getSaldo() >= monto){
                         int saldoOrigenNuevo = cuenta.getSaldo() - monto;
                         if(cuenta.modificarSaldo(saldoOrigenNuevo, numeroCuentaInt)){
                             return true; 
@@ -116,6 +116,7 @@ public class funcionesBanco {
                     } 
                 }
                 else{
+                   JOptionPane.showMessageDialog(null, "Error en sistema, volver a intentar nuevamente", "Advertencia", JOptionPane.OK_OPTION);
                    return false;  
                 }    
             }
