@@ -177,4 +177,20 @@ public class funcionesBanco {
             return false;
         }
     }
+    
+    
+    public static boolean crearCliente(String rut, String nombre, String apellidoPaterno, String apellidoMaterno, String domicilio, String comuna, String telefono, int cuenta, String tipoCuenta){
+        Cuenta cuentaCliente = new Cuenta();
+        boolean rsCuenta = cuentaCliente.crearCuenta(cuenta, tipoCuenta, 0);
+        
+        Cliente cliente = new Cliente();
+        boolean rsCliente = cliente.crearCliente(rut, nombre, apellidoPaterno, apellidoMaterno, domicilio, comuna, telefono, cuenta);
+        
+        if(rsCuenta && rsCliente){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

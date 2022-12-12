@@ -146,4 +146,25 @@ public class Cliente {
     }
     
     
+    public boolean crearCliente(String rut, String nombre, String apellidoPaterno, String apellidoMaterno, String domicilio, String comuna, String telefono, int cuenta){
+        this.setRut(rut);
+        this.setNombre(nombre);
+        this.setApellidoPaterno(apellidoPaterno);
+        this.setApellidoMaterno(apellidoMaterno);
+        this.setDomicilio(domicilio);
+        this.setComuna(comuna);
+        this.setTelefono(telefono);
+        this.setCuenta(cuenta);
+        
+        int reg = new ClienteDA().crearCliente(this);
+        
+        if(reg == 1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    
 }

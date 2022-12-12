@@ -45,7 +45,13 @@ public class ClienteDA {
         try{
             PreparedStatement pst = dbCtx.getConnection().prepareStatement(st);
             pst.setString(1, cliente.getRut());
-           //falta  por completar
+            pst.setString(2, cliente.getNombre());
+            pst.setString(3, cliente.getApellidoPaterno());
+            pst.setString(4, cliente.getApellidoMaterno());
+            pst.setString(5, cliente.getDomicilio());
+            pst.setString(6, cliente.getComuna());
+            pst.setString(7, cliente.getTelefono());
+            pst.setInt(8, cliente.getCuenta());
             rs=pst.executeUpdate();
             return rs;
         }
