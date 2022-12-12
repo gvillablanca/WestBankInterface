@@ -707,7 +707,7 @@ public class gestionarCuenta extends javax.swing.JFrame {
                     }
                 }
                 else{
-                  JOptionPane.showMessageDialog(null, "Ingresar monto a girar mayor a 0", "Advertencia", JOptionPane.OK_OPTION);  
+                  JOptionPane.showMessageDialog(null, "Ingresar monto a depositar mayor a 0", "Advertencia", JOptionPane.OK_OPTION);  
                 }
             }
             else{
